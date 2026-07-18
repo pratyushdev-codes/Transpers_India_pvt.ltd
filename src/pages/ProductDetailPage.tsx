@@ -67,6 +67,15 @@ export default function ProductDetailPage() {
           </Link>
 
           <div className="mt-8 max-w-3xl">
+            {config?.image && (
+              <div className="mb-8 overflow-hidden rounded-2xl border border-[#d8eee3] bg-[#e8f6ef]">
+                <img
+                  src={config.image}
+                  alt={name}
+                  className="h-52 w-full object-cover md:h-64"
+                />
+              </div>
+            )}
             <SectionHeading eyebrow="Full Description" title={name} />
             <p className="mt-5 text-base leading-relaxed text-[#4d655a]">{description}</p>
           </div>

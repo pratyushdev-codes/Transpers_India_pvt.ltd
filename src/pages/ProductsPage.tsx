@@ -54,23 +54,33 @@ export default function ProductsPage() {
       <section className="site-section bg-[#e8f6ef]">
         <div className="container-site">
           <SectionHeading eyebrow="Configurations" title={products.configurations.heading} />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             {products.configurations.items.map((config) => (
               <article
                 key={config.slug}
-                className="flex flex-col rounded-2xl border border-[#d8eee3] bg-white p-7"
+                className="flex flex-col overflow-hidden rounded-2xl border border-[#d8eee3] bg-white"
               >
-                <h3 className="text-xl font-bold text-[#123028]">{config.name}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-[#4d655a]">
-                  {config.description}
-                </p>
-                <Link
-                  to={config.path}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#0f7a4f] hover:gap-3"
-                >
-                  View Details
-                  <ArrowRight size={16} />
-                </Link>
+                <div className="h-40 overflow-hidden bg-[#e8f6ef] md:h-44">
+                  <img
+                    src={config.image}
+                    alt={config.name}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <h3 className="text-xl font-bold text-[#123028]">{config.name}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#4d655a]">
+                    {config.description}
+                  </p>
+                  <Link
+                    to={config.path}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#0f7a4f] hover:gap-3"
+                  >
+                    View Details
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
               </article>
             ))}
           </div>

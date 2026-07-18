@@ -1,12 +1,22 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
+const greenTextGradient = {
+  backgroundImage: 'linear-gradient(90deg, #5ed29c, #0f7a4f 50%, #0a5c3b)',
+  WebkitBackgroundClip: 'text' as const,
+  backgroundClip: 'text' as const,
+  WebkitTextFillColor: 'transparent',
+  color: 'transparent',
+}
+
 interface SectionHeadingProps {
   eyebrow?: string
   title: string
   subtitle?: string
   align?: 'left' | 'center'
   tone?: 'green' | 'white' | 'dark'
+  /** Apply the brand mint→forest green text gradient to the title */
+  gradient?: boolean
 }
 
 export function SectionHeading({
@@ -15,6 +25,7 @@ export function SectionHeading({
   subtitle,
   align = 'left',
   tone = 'green',
+  gradient = false,
 }: SectionHeadingProps) {
   const titleColor =
     tone === 'white' ? 'text-white' : tone === 'dark' ? 'text-[#070b0a]' : 'text-[#123028]'
@@ -32,7 +43,8 @@ export function SectionHeading({
         </p>
       )}
       <h2
-        className={`font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight md:text-4xl lg:text-[2.75rem] ${titleColor}`}
+        className={`font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight md:text-4xl lg:text-[2.75rem] ${gradient ? '' : titleColor}`}
+        style={gradient ? greenTextGradient : undefined}
       >
         {title}
       </h2>
@@ -93,6 +105,7 @@ interface CtaBandProps {
   primaryTo?: string
   secondaryLabel?: string
   secondaryTo?: string
+  backgroundImage?: string
   children?: ReactNode
 }
 
@@ -103,10 +116,31 @@ export function CtaBand({
   primaryTo = '/contact-us',
   secondaryLabel,
   secondaryTo,
+  backgroundImage,
 }: CtaBandProps) {
   return (
-    <section className="site-section bg-[#0f7a4f]">
-      <div className="container-site flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+    <section
+      className={`site-section relative overflow-hidden ${backgroundImage ? '' : 'bg-[#0f7a4f]'}`}
+    >
+      {backgroundImage && (
+        <>
+          <img
+            src={backgroundImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(105deg, rgba(7, 11, 10, 0.82) 0%, rgba(15, 122, 79, 0.72) 55%, rgba(7, 11, 10, 0.7) 100%)',
+            }}
+            aria-hidden="true"
+          />
+        </>
+      )}
+      <div className="container-site relative z-10 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         <div className="max-w-2xl">
           <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold text-white md:text-4xl">
             {heading}

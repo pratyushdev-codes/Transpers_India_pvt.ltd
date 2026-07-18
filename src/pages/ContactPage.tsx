@@ -71,27 +71,27 @@ export default function ContactPage() {
                 <Phone size={20} className="mt-0.5 shrink-0 text-[#0f7a4f]" />
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0f7a4f]">Phone</p>
-                  <a
-                    href={`tel:${contact.details.phone}`}
-                    className="mt-1 block text-sm font-semibold text-[#123028] hover:text-[#0f7a4f]"
-                  >
-                    {contact.details.phone}
-                  </a>
+                  {contact.details.phones.map((phone) => (
+                    <a
+                      key={phone}
+                      href={`tel:${phone.replace(/\s/g, '')}`}
+                      className="mt-1 block text-sm font-semibold text-[#123028] hover:text-[#0f7a4f]"
+                    >
+                      {phone}
+                    </a>
+                  ))}
                 </div>
               </div>
               <div className="flex gap-3">
                 <Mail size={20} className="mt-0.5 shrink-0 text-[#0f7a4f]" />
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0f7a4f]">Email</p>
-                  {contact.details.emails.map((email) => (
-                    <a
-                      key={email.value}
-                      href={`mailto:${email.value}`}
-                      className="mt-1 block text-sm font-semibold text-[#123028] hover:text-[#0f7a4f]"
-                    >
-                      {email.label}: {email.value}
-                    </a>
-                  ))}
+                  <a
+                    href={`mailto:${contact.details.email}`}
+                    className="mt-1 block text-sm font-semibold text-[#123028] hover:text-[#0f7a4f]"
+                  >
+                    {contact.details.email}
+                  </a>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -259,6 +259,22 @@ export default function ContactPage() {
                 </div>
               </form>
             )}
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section bg-[#f7fcf9]">
+        <div className="container-site">
+          <SectionHeading eyebrow="Visit Us" title="Our Location" />
+          <div className="mt-8 overflow-hidden rounded-2xl border border-[#d8eee3]">
+            <iframe
+              title="TRANSPARES LIMITED location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.5820559919393!2d72.45201887539203!3d22.928781519821612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b20bf1af271%3A0xb4edf841203d2e88!2sTRANSPARES%20LIMITED!5e0!3m2!1sen!2sin!4v1784389150168!5m2!1sen!2sin"
+              className="h-[320px] w-full border-0 md:h-[450px]"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
           </div>
         </div>
       </section>

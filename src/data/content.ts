@@ -48,6 +48,7 @@ export interface ProductPreviewCard {
   description: string;
   path: string;
   cta: string;
+  image: string;
 }
 
 export interface ParamRow {
@@ -66,6 +67,7 @@ export interface RadiatorConfiguration {
   slug: string;
   path: string;
   description: string;
+  image: string;
 }
 
 export interface Certification {
@@ -98,11 +100,10 @@ export interface CtaBlock {
 // ---------------------------------------------------------------------------
 
 export const brand = {
-  name: "Transpaers",
+  name: "Transpers Limited",
   shortName: "Transpaers",
   legalName: "Transpaers India Pvt Ltd",
-  tagline: "Engineered to Keep Power Flowing",
-  motto: "We Can and We Will.",
+  tagline: "Power systems cooling — engineered to perform",
   primaryCta: "Request a Quote",
   secondaryCtas: ["Explore Products", "Download Brochure", "Talk to Our Engineers"],
 };
@@ -118,16 +119,14 @@ export const nav: NavItem[] = [
     label: "Products",
     path: "/products",
     children: [
-      { label: "Standard Radiators", path: "/products/standard-radiators" },
-      { label: "Airfoil Radiators", path: "/products/airfoil-radiators" },
-      { label: "Gooseneck Radiators", path: "/products/gooseneck-radiators" },
-      { label: "Transformer Tanks", path: "/products/transformer-tanks" },
+      { label: "Flange Type", path: "/products/flange-type" },
+      { label: "Weldable Type", path: "/products/weldable-type" },
+      { label: "Hot-Dip Galvanized", path: "/products/hot-dip-galvanized" },
+      { label: "Offset Type", path: "/products/offset-type" },
     ],
   },
   { label: "Applications", path: "/applications" },
-  { label: "Quality & Certifications", path: "/quality-certifications" },
   { label: "Manufacturing", path: "/manufacturing" },
-  { label: "Sustainability", path: "/sustainability" },
   { label: "Contact Us", path: "/contact-us" },
 ];
 
@@ -157,9 +156,9 @@ export const seo: Record<
       "Learn about Transpaers India Pvt Ltd — our journey, facilities, leadership, vision, and the values that make us a trusted global partner for transformer cooling solutions.",
   },
   products: {
-    title: "Transformer Radiators — Standard, Airfoil & Gooseneck | Transformer Tanks | Transpaers India",
+    title: "Transformer Radiators — Flange, Weldable, Hot-Dip Galvanized & Offset | Transpaers India",
     description:
-      "Explore Transpaers India's full product range: mild steel, stainless steel, and galvanized transformer radiators in standard, airfoil, and gooseneck configurations, plus corrugated transformer tanks.",
+      "Explore Transpaers India's product range: flange type, weldable type, hot-dip galvanized, and offset type transformer radiators — engineered for secure installation, durability, and reliable performance.",
   },
   applications: {
     title: "Application Cases | Transformer Radiators in Power, Rail, Renewables & Offshore | Transpaers India",
@@ -214,6 +213,24 @@ export const home = {
     { value: "400+", label: "Clients Served" },
     { value: "20,000 m²", label: "Production Area" },
   ] as Stat[],
+  marqueeChips: [
+    "35+ Years Since Inception",
+    "55+ Countries We Export To",
+    "400+ Clients Served",
+    "20,000 m² Production Area",
+    "Fin widths: 300 / 380 / 520 mm",
+    "Pitch sizes: 40 / 45 / 50 / 55 mm",
+    "Centre lengths up to 4000 mm",
+    "ISO 9001:2015 Certified",
+    "NTPC & PGCIL Approved",
+    "Capacity: 8000 MT / Year",
+    "Flood Coating Process",
+    "100% Leak Tested",
+    "Custom Dimensions & Finishes",
+    "Proven at scale",
+    "International packing for exports",
+    "Serial-number traceability",
+  ],
   advantages: {
     intro:
       "Four commitments sit at the heart of everything we manufacture — experience, technology, quality, and service. Here is what they look like in practice.",
@@ -274,35 +291,39 @@ export const home = {
     cards: [
       {
         icon: "PanelsTopLeft",
-        title: "Standard Radiators",
+        title: "Flange Type Transformer",
         description:
-          "The industry workhorse: units of the same specification or size connected in parallel, delivering dependable cooling for power and distribution transformers.",
-        path: "/products/standard-radiators",
+          "Designed with flange-mounted fittings for secure and easy installation. It provides excellent mechanical stability and simplifies maintenance or replacement in power distribution systems.",
+        path: "/products/flange-type",
         cta: "View Details",
+        image: "/flanged-type-transformer-radiator-485.jpg",
       },
       {
-        icon: "Wind",
-        title: "Airfoil Radiators",
+        icon: "Zap",
+        title: "Weldable Type Transformer",
         description:
-          "A combined configuration built from two common radiator types, engineered for enhanced heat dissipation where space and airflow demand it.",
-        path: "/products/airfoil-radiators",
+          "Features a weldable mounting structure that allows permanent and robust installation. It is ideal for applications requiring high structural strength and long-term reliability.",
+        path: "/products/weldable-type",
         cta: "View Details",
+        image: "/weldable-type-radiators.jpeg",
+      },
+      {
+        icon: "ShieldCheck",
+        title: "Hot-Dip Galvanized Transformer",
+        description:
+          "Manufactured with hot-dip galvanized components to provide superior corrosion resistance. This protective coating enhances durability, making it suitable for harsh outdoor and industrial environments.",
+        path: "/products/hot-dip-galvanized",
+        cta: "View Details",
+        image: "/hot-dip-galvanized.jpeg",
       },
       {
         icon: "GitCommitVertical",
-        title: "Gooseneck Radiators",
+        title: "Offset Type Transformer",
         description:
-          "Units of two different specifications or sizes connected in parallel — the ideal solution where mounting geometry or clearances require a stepped profile.",
-        path: "/products/gooseneck-radiators",
+          "Designed with an offset mounting configuration to accommodate specific installation requirements where space or alignment is constrained. It offers greater flexibility while maintaining reliable electrical performance.",
+        path: "/products/offset-type",
         cta: "View Details",
-      },
-      {
-        icon: "Container",
-        title: "Transformer Tanks",
-        description:
-          "Corrugated flat-wall tanks for distribution transformers, fabricated and tested to exacting dimensional and leak-tightness standards.",
-        path: "/products/transformer-tanks",
-        cta: "View Details",
+        image: "/offset-type-radiators.jpeg",
       },
     ] as ProductPreviewCard[],
   },
@@ -427,32 +448,43 @@ export const products = {
   overview: {
     heading: "Overview",
     paragraphs: [
-      "We professionally manufacture the complete range of transformer radiators — from compact units for oil-immersed distribution transformers to large plate radiators for 550 kV-class power transformers — along with corrugated tanks. Every product is engineered for maximum heat dissipation, long service life, and full compliance with international standards, and every product is backed by our quality guarantee.",
+      "We professionally manufacture flange type, weldable type, hot-dip galvanized, and offset type transformer radiators — engineered for secure installation, structural strength, corrosion resistance, and flexible mounting. Every product is built for maximum heat dissipation, long service life, and full compliance with international standards, and every product is backed by our quality guarantee.",
     ],
   },
   configurations: {
-    heading: "Radiator Configurations",
+    heading: "Our Products",
     items: [
       {
-        name: "Standard (Typical) Radiators",
-        slug: "standard-radiators",
-        path: "/products/standard-radiators",
+        name: "Flange Type Transformer",
+        slug: "flange-type",
+        path: "/products/flange-type",
         description:
-          "Composed of units of the same specification or size connected in parallel, the standard configuration is the proven workhorse of transformer cooling — simple to install, easy to maintain, and dependable across power and distribution applications.",
+          "Designed with flange-mounted fittings for secure and easy installation. It provides excellent mechanical stability and simplifies maintenance or replacement in power distribution systems.",
+        image: "/flanged-type-transformer-radiator-485.jpg",
       },
       {
-        name: "Airfoil Radiators",
-        slug: "airfoil-radiators",
-        path: "/products/airfoil-radiators",
+        name: "Weldable Type Transformer",
+        slug: "weldable-type",
+        path: "/products/weldable-type",
         description:
-          "A combined configuration built from two common radiator types. The airfoil design maximizes effective cooling surface and airflow, making it the preferred choice where enhanced heat dissipation must be achieved within a constrained footprint.",
+          "Features a weldable mounting structure that allows permanent and robust installation. It is ideal for applications requiring high structural strength and long-term reliability.",
+        image: "/weldable-type-radiators.jpeg",
       },
       {
-        name: "Gooseneck Radiators",
-        slug: "gooseneck-radiators",
-        path: "/products/gooseneck-radiators",
+        name: "Hot-Dip Galvanized Transformer",
+        slug: "hot-dip-galvanized",
+        path: "/products/hot-dip-galvanized",
         description:
-          "Composed of units of two different specifications or sizes connected in parallel, the gooseneck configuration provides a stepped profile — ideal where mounting geometry, bushing clearances, or tank design call for a non-standard arrangement without sacrificing cooling performance.",
+          "Manufactured with hot-dip galvanized components to provide superior corrosion resistance. This protective coating enhances durability, making it suitable for harsh outdoor and industrial environments.",
+        image: "/hot-dip-galvanized.jpeg",
+      },
+      {
+        name: "Offset Type Transformer",
+        slug: "offset-type",
+        path: "/products/offset-type",
+        description:
+          "Designed with an offset mounting configuration to accommodate specific installation requirements where space or alignment is constrained. It offers greater flexibility while maintaining reliable electrical performance.",
+        image: "/offset-type-radiators.jpeg",
       },
     ] as RadiatorConfiguration[],
   },
@@ -740,22 +772,22 @@ export const contact = {
     body: "Whether you need a budgetary offer, a detailed technical discussion, or an urgent delivery, our engineering-led team responds quickly and speaks your language — specifications, standards, and schedules.",
   },
   details: {
-    registeredOffice: "Full address, City, State, PIN, India",
-    phone: "+91-XXXXXXXXXX",
-    emails: [
-      { label: "Sales", value: "sales@transpaersindia.com" },
-      { label: "General Enquiries", value: "info@transpaersindia.com" },
-    ],
+    registeredOffice:
+      "14-15 Ashwamegh Industrial Estate, Sarkhej-Bavla Hwy, Changodar, Ahmedabad, Gujarat 382213",
+    phones: ["(02717) 250633", "+91 968 765 9980"],
+    phone: "+91 968 765 9980",
+    email: "vpswaran@transparesindia.com",
+    emails: [{ label: "Email", value: "vpswaran@transparesindia.com" }],
     businessHours: "Mon–Sat, 9:00 AM – 6:00 PM IST",
-    connectivity: "X hrs from International Airport · X hrs from Sea Port",
+
   },
   formFields: {
     fields: ["Name", "Company", "Country", "Email", "Phone", "Product of Interest", "Message", "Attach Drawing"],
     productOptions: [
-      "Standard Radiator",
-      "Airfoil Radiator",
-      "Gooseneck Radiator",
-      "Transformer Tank",
+      "Flange Type Transformer",
+      "Weldable Type Transformer",
+      "Hot-Dip Galvanized Transformer",
+      "Offset Type Transformer",
       "Custom",
     ],
   },
@@ -763,7 +795,7 @@ export const contact = {
     heading: "Help Us Quote Faster — RFQ Checklist",
     intro: "To receive the fastest, most accurate quotation, please include:",
     items: [
-      "Radiator type and configuration (standard / airfoil / gooseneck)",
+      "Radiator type and configuration (flange / weldable / hot-dip galvanized / offset)",
       "Fin length, width, thickness, and number of fins/sections",
       "Material grade and surface treatment required (HDG / painted / HDG + painted)",
       "Applicable standards and inspection requirements",

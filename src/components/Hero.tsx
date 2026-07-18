@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import Hls from 'hls.js'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import LiquidGlassCard from './LiquidGlassCard'
 import { brand, home } from '../data/content'
 import Button from './ui/Button'
 
@@ -93,8 +92,6 @@ export default function Hero() {
       </svg>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-16 pt-28 md:justify-center md:px-10 md:pb-24 md:pt-32">
-        <LiquidGlassCard />
-
         <p
           className="mb-4 font-[family-name:var(--font-jakarta)] font-bold tracking-wide text-[#5ed29c]"
           style={{ fontSize: 11 }}

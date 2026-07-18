@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Hero from '../components/Hero'
+import FreedomSection from '../components/FreedomSection'
+import MottoBox from '../components/MottoBox'
+import PrecisionSection from '../components/PrecisionSection'
 import Seo from '../components/ui/Seo'
 import { SectionHeading, CtaBand } from '../components/ui/Section'
-import IconByName from '../components/ui/IconByName'
-import { brand, home, seo } from '../data/content'
+import { home, seo } from '../data/content'
 
 export default function HomePage() {
   return (
@@ -16,7 +18,7 @@ export default function HomePage() {
       <section className="site-section bg-white">
         <div className="container-site grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <SectionHeading eyebrow="Welcome" title={home.welcome.heading} />
+            <SectionHeading eyebrow="Welcome" title={home.welcome.heading} gradient />
             <div className="mt-6 space-y-4 text-base leading-relaxed text-[#4d655a]">
               {home.welcome.paragraphs.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>
@@ -30,91 +32,98 @@ export default function HomePage() {
               <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="rounded-3xl bg-[#0f7a4f] p-8 text-white md:p-10">
-            <p className="font-[family-name:var(--font-jakarta)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#5ed29c]">
-              Company Motto
-            </p>
-            <p className="mt-4 font-[family-name:var(--font-instrument)] text-3xl italic md:text-4xl">
-              {brand.motto}
-            </p>
-            <p className="mt-6 text-sm leading-relaxed text-white/80">{brand.tagline}</p>
-          </div>
+          <MottoBox />
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-[#e8f6ef] py-12 md:py-16">
-        <div className="container-site grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
-          {home.stats.map((stat) => (
-            <div key={stat.label} className="text-center md:text-left">
-              <p className="font-[family-name:var(--font-inter)] text-3xl font-extrabold text-[#0f7a4f] md:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-sm font-medium text-[#4d655a]">{stat.label}</p>
+      {/* Highlights marquee */}
+      <section
+        className="stats-marquee overflow-hidden bg-[#e8f6ef] py-3 md:py-3.5"
+        aria-label="Scrolling product highlights"
+      >
+        <div className="stats-marquee__track" role="list">
+          {[0, 1].map((copy) => (
+            <div
+              key={copy}
+              className="stats-marquee__group"
+              aria-hidden={copy === 1 ? true : undefined}
+            >
+              {home.marqueeChips.map((chip) => (
+                <div key={`${copy}-${chip}`} className="stats-marquee__chip" role="listitem">
+                  {chip}
+                </div>
+              ))}
             </div>
           ))}
         </div>
       </section>
 
-      {/* Advantages */}
-      <section className="site-section bg-white">
-        <div className="container-site">
-          <SectionHeading
-            eyebrow="Why Choose Transpaers"
-            title="Our Advantages"
-            subtitle={home.advantages.intro}
-          />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {home.advantages.cards.map((card) => (
-              <article
-                key={card.title}
-                className="rounded-2xl border border-[#d8eee3] bg-white p-6 shadow-sm transition hover:border-[#0f7a4f] hover:shadow-md"
-              >
-                <div className="mb-4 inline-flex rounded-xl bg-[#e8f6ef] p-3 text-[#0f7a4f]">
-                  <IconByName name={card.icon} size={22} />
-                </div>
-                <h3 className="text-lg font-bold text-[#123028]">{card.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#4d655a]">{card.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FreedomSection />
 
       {/* Products preview */}
-      <section className="site-section bg-[#f7fcf9]">
-        <div className="container-site">
+      <section className="relative site-section overflow-hidden bg-[#f7fcf9]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-[radial-gradient(ellipse_90%_100%_at_50%_100%,rgba(15,122,79,0.28)_0%,rgba(94,210,156,0.14)_35%,transparent_70%)]"
+        />
+        <div className="container-site relative">
           <SectionHeading
             eyebrow="Product Range"
             title={home.productsPreview.heading}
             subtitle={home.productsPreview.subheading}
+            gradient
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {home.productsPreview.cards.map((card) => (
               <article
                 key={card.title}
-                className="flex flex-col rounded-2xl border border-[#d8eee3] bg-white p-7"
+                className="flex flex-col overflow-hidden rounded-2xl border border-[#d8eee3] bg-white"
               >
-                <div className="mb-4 inline-flex w-fit rounded-xl bg-[#0f7a4f] p-3 text-white">
-                  <IconByName name={card.icon} size={22} />
+                <div className="h-40 overflow-hidden bg-[#e8f6ef] md:h-44">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-[#123028]">{card.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-[#4d655a]">{card.description}</p>
-                <Link
-                  to={card.path}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#0f7a4f]"
-                >
-                  {card.cta} →
-                </Link>
+                <div className="flex flex-1 flex-col p-7">
+                  <h3 className="text-xl font-bold text-[#123028]">{card.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#4d655a]">{card.description}</p>
+                  <Link
+                    to={card.path}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#0f7a4f]"
+                  >
+                    {card.cta} →
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
+      <PrecisionSection />
+
       {/* Applications preview */}
-      <section className="site-section bg-[#0f7a4f] text-white">
-        <div className="container-site">
+      <section className="relative site-section overflow-hidden text-white">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/applications-bg.mp4"
+          muted
+          loop
+          playsInline
+          autoPlay
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 z-[1]"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(7, 11, 10, 0.72) 0%, rgba(15, 122, 79, 0.55) 45%, rgba(7, 11, 10, 0.78) 100%)',
+          }}
+        />
+        <div className="container-site relative z-10">
           <SectionHeading
             tone="white"
             eyebrow="Applications"
@@ -125,7 +134,7 @@ export default function HomePage() {
             {home.applicationsPreview.sectors.map((sector) => (
               <span
                 key={sector}
-                className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium text-white"
+                className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm"
               >
                 {sector}
               </span>
@@ -154,7 +163,7 @@ export default function HomePage() {
       <section className="site-section bg-[#e8f6ef]">
         <div className="container-site grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
-            <SectionHeading title={home.sustainability.heading} subtitle={home.sustainability.body} />
+            <SectionHeading title={home.sustainability.heading} subtitle={home.sustainability.body} gradient />
           </div>
           <Link
             to="/sustainability"
@@ -171,6 +180,7 @@ export default function HomePage() {
         body={home.closingCta.body}
         primaryLabel={home.closingCta.primaryCta}
         primaryTo="/contact-us"
+        backgroundImage="/bg%204.jpeg"
       />
     </>
   )

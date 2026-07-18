@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import { brand, nav } from '../../data/content'
-import Button from '../ui/Button'
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -37,28 +36,34 @@ export default function Header() {
             : 'bg-transparent text-white'
         }`}
       >
-        <div className="container-site flex h-16 items-center justify-between md:h-20">
-          <Link to="/" className="flex flex-col" onClick={closeMobile}>
+        <div className="container-site flex h-16 items-center gap-8 md:h-20 lg:gap-10">
+          <Link
+            to="/"
+            className="flex shrink-0 items-center gap-2.5"
+            onClick={closeMobile}
+            aria-label={`${brand.name} home`}
+          >
+            <img
+              src="/Transpers%20Logo.jpeg"
+              alt=""
+              className="h-9 w-9 rounded-sm object-contain md:h-10 md:w-10"
+            />
             <span className="font-[family-name:var(--font-inter)] text-lg font-extrabold tracking-tight md:text-xl">
               {brand.name}
             </span>
-            <span
-              className={`hidden text-[10px] font-medium tracking-wide md:block ${
-                scrolled || mobileOpen ? 'text-[#4d655a]' : 'text-white/70'
-              }`}
-            >
-              {brand.legalName}
-            </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          <nav
+            className="hidden min-w-0 flex-1 items-center justify-end gap-x-6 xl:gap-x-8 lg:flex"
+            aria-label="Primary"
+          >
             {nav.map((item) =>
               item.children ? (
                 <div key={item.path} className="group relative">
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      `inline-flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors hover:text-[#0f7a4f] ${
+                      `inline-flex items-center gap-1 whitespace-nowrap py-2 text-sm font-medium transition-colors hover:text-[#0f7a4f] ${
                         isActive ? 'text-[#0f7a4f]' : ''
                       }`
                     }
@@ -83,7 +88,7 @@ export default function Header() {
                   key={item.path}
                   to={item.path}
                   className={({ isActive }) =>
-                    `px-3 py-2 text-sm font-medium transition-colors hover:text-[#0f7a4f] ${
+                    `whitespace-nowrap py-2 text-sm font-medium transition-colors hover:text-[#0f7a4f] ${
                       isActive ? 'text-[#0f7a4f]' : ''
                     }`
                   }
@@ -94,15 +99,9 @@ export default function Header() {
             )}
           </nav>
 
-          <div className="hidden lg:block">
-            <Button to="/contact-us" variant={scrolled ? 'primary' : 'secondary'} size="sm">
-              {brand.primaryCta}
-            </Button>
-          </div>
-
           <button
             type="button"
-            className="inline-flex lg:hidden"
+            className="ml-auto inline-flex lg:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((o) => !o)}
@@ -163,11 +162,6 @@ export default function Header() {
                 )}
               </div>
             ))}
-            <div className="pt-6">
-              <Button to="/contact-us" variant="primary" className="w-full" onClick={closeMobile}>
-                {brand.primaryCta}
-              </Button>
-            </div>
           </nav>
         </div>
       )}
