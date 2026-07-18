@@ -155,6 +155,18 @@ export default function Footer() {
                 ))}
               </div>
             </div>
+
+            {/* Credit line */}
+            <div className="flex items-center justify-center gap-2 border-t border-gray-100 bg-white px-6 py-4 md:px-10 lg:px-12">
+              <p className="text-sm font-semibold text-gray-500">
+                Developed and Maintained by
+              </p>
+              <img
+                src="/Aglroyx.png"
+                alt="AlgoryX Labs and Tech"
+                className="h-8 w-auto object-contain md:h-9"
+              />
+            </div>
           </motion.div>
         </div>
       </section>

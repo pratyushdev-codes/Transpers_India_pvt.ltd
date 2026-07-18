@@ -779,7 +779,8 @@ export const contact = {
     email: "vpswaran@transparesindia.com",
     emails: [{ label: "Email", value: "vpswaran@transparesindia.com" }],
     businessHours: "Mon–Sat, 9:00 AM – 6:00 PM IST",
-
+    connectivity:
+      "X hrs by road from International Airport · X hrs from Major Sea Port",
   },
   formFields: {
     fields: ["Name", "Company", "Country", "Email", "Phone", "Product of Interest", "Message", "Attach Drawing"],
