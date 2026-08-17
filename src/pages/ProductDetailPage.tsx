@@ -96,9 +96,8 @@ export default function ProductDetailPage() {
           {isTanks && (
             <div className="mt-6 max-w-3xl text-sm leading-relaxed text-[#4d655a]">
               <p>
-                Fabricated under our ISO 3834-2-certified welding quality system, leak-tested, and finished with
-                the same surface treatment options as our radiators — hot-dip galvanized, painted, or a duplex
-                combination of both.
+                Leak-tested and finished with the same surface treatment options as our radiators — hot-dip
+                galvanized, painted, or a duplex combination of both.
               </p>
             </div>
           )}

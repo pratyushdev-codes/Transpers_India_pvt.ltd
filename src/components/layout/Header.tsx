@@ -71,12 +71,12 @@ export default function Header() {
                     {item.label}
                     <ChevronDown size={14} />
                   </NavLink>
-                  <div className="invisible absolute left-0 top-full z-50 min-w-[240px] rounded-xl border border-[#e8f6ef] bg-white py-2 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
+                  <div className="invisible absolute left-0 top-full z-50 min-w-[240px] rounded-xl border border-[#e8f6ef] bg-white py-2 text-[#123028] opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
                     {item.children.map((child) => (
                       <Link
                         key={child.path}
                         to={child.path}
-                        className="block px-4 py-2.5 text-sm text-[#123028] hover:bg-[#e8f6ef] hover:text-[#0f7a4f]"
+                        className="block px-4 py-2.5 text-sm !text-[#123028] hover:bg-[#e8f6ef] hover:!text-[#0f7a4f]"
                       >
                         {child.label}
                       </Link>

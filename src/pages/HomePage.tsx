@@ -6,7 +6,7 @@ import MottoBox from '../components/MottoBox'
 import PrecisionSection from '../components/PrecisionSection'
 import Seo from '../components/ui/Seo'
 import { SectionHeading, CtaBand } from '../components/ui/Section'
-import { home, seo } from '../data/content'
+import { home, seo, clients } from '../data/content'
 
 export default function HomePage() {
   return (
@@ -159,17 +159,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sustainability snippet */}
-      <section className="site-section bg-[#e8f6ef]">
-        <div className="container-site grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
-            <SectionHeading title={home.sustainability.heading} subtitle={home.sustainability.body} gradient />
+      {/* Our Clients trail */}
+      <section className="site-section bg-white">
+        <div className="container-site">
+          <SectionHeading
+            eyebrow="Trusted By"
+            title="Our Clients"
+            subtitle="A growing trail of OEM and utility partnerships across India and export markets — NTPC and PGCIL approved, including 765 kV."
+            gradient
+          />
+          <div className="mt-10 overflow-hidden">
+            <div className="stats-marquee__track" role="list">
+              {[0, 1].map((copy) => (
+                <div
+                  key={copy}
+                  className="stats-marquee__group"
+                  aria-hidden={copy === 1 ? true : undefined}
+                >
+                  {clients.items.map(
+                    (name) => (
+                      <div
+                        key={`${copy}-${name}`}
+                        className="stats-marquee__chip"
+                        role="listitem"
+                      >
+                        {name}
+                      </div>
+                    ),
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
           <Link
-            to="/sustainability"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0f7a4f] px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-[#0a5c3b]"
+            to="/clients"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#0f7a4f]"
           >
-            {home.sustainability.cta}
+            View All Clients
             <ArrowRight size={16} />
           </Link>
         </div>

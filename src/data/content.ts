@@ -78,7 +78,7 @@ export interface Certification {
 export interface Milestone {
   period: string;
   title: string;
-  description: string;
+  description?: string;
 }
 
 export interface EffortItem {
@@ -100,9 +100,9 @@ export interface CtaBlock {
 // ---------------------------------------------------------------------------
 
 export const brand = {
-  name: "Transpers Limited",
-  shortName: "Transpaers",
-  legalName: "Transpaers India Pvt Ltd",
+  name: "Transpares Limited",
+  shortName: "Transpares",
+  legalName: "Transpares Limited",
   tagline: "Power systems cooling — engineered to perform",
   primaryCta: "Request a Quote",
   secondaryCtas: ["Explore Products", "Download Brochure", "Talk to Our Engineers"],
@@ -123,10 +123,12 @@ export const nav: NavItem[] = [
       { label: "Weldable Type", path: "/products/weldable-type" },
       { label: "Hot-Dip Galvanized", path: "/products/hot-dip-galvanized" },
       { label: "Offset Type", path: "/products/offset-type" },
+      { label: "Goose Neck Type", path: "/products/goose-neck-type" },
     ],
   },
   { label: "Applications", path: "/applications" },
   { label: "Manufacturing", path: "/manufacturing" },
+  { label: "Credentials", path: "/quality-certifications" },
   { label: "Contact Us", path: "/contact-us" },
 ];
 
@@ -142,7 +144,8 @@ export const seo: Record<
   | "quality"
   | "manufacturing"
   | "sustainability"
-  | "contact",
+  | "contact"
+  | "clients",
   SeoMeta
 > = {
   home: {
@@ -166,14 +169,14 @@ export const seo: Record<
       "See where Transpaers India radiators perform — grid substations, power plants, railway traction, renewables, and harsh coastal and offshore environments across 55+ countries.",
   },
   quality: {
-    title: "Quality & Certifications | ISO 9001, ISO 3834-2 Certified Radiator Manufacturer | Transpaers India",
+    title: "Quality & Certifications | ISO 9001, ISO 14001, NTPC & PGCIL Approved | Transpares Limited",
     description:
-      "Quality at Transpaers India: ISO 9001, ISO 14001, ISO 45001, and ISO 3834-2 certified systems, NACE and FROSIO qualified professionals, and stage-wise inspection on every product.",
+      "Quality at Transpares Limited: ISO 9001, ISO 14001 certified systems, NTPC and PGCIL approved — including PGCIL 765 kV — with stage-wise inspection on every product.",
   },
   manufacturing: {
-    title: "Manufacturing Facilities | In-House HDG & Automated Coating | Transpaers India Pvt Ltd",
+    title: "Manufacturing Facilities | In-House HDG & Automated Coating | Transpares Limited",
     description:
-      "Tour Transpaers India's manufacturing strength: 20,000 m² across 5 plants, 24,000 MT annual radiator capacity, in-house hot-dip galvanizing, and PLC-controlled internal cleaning and coating.",
+      "Tour Transpares Limited's manufacturing strength: 20,000 m² of production area, 12,000 MT annual radiator capacity, and moisture content (PPM) and particle count meters on the internal cleaning and coating process.",
   },
   sustainability: {
     title: "Sustainability | Responsible Transformer Radiator Manufacturing | Transpaers India",
@@ -181,9 +184,14 @@ export const seo: Record<
       "Transpaers India's sustainability commitments: ISO 14064-3 verified GHG accounting, energy efficiency, circular economy practices, waste reduction, and a rigorous environmental policy.",
   },
   contact: {
-    title: "Contact Transpaers India Pvt Ltd | Request a Quote for Transformer Radiators & Tanks",
+    title: "Contact Transpares Limited | Transformer Radiators & Tanks",
     description:
-      "Get in touch with Transpaers India for enquiries, quotations, and technical support on transformer radiators and tanks. Fast responses from an engineering-led team.",
+      "Get in touch with Transpares Limited for quotations and technical support on transformer radiators and tanks. Fast responses from an engineering-led team.",
+  },
+  clients: {
+    title: "Our Clients | Transformer OEM Partners | Transpares Limited",
+    description:
+      "Transpares Limited supplies pressed steel transformer radiators to OEMs and utilities across India and export markets, with NTPC and PGCIL approvals including 765 kV.",
   },
 };
 
@@ -195,7 +203,7 @@ export const home = {
   hero: {
     headline: "Precision-Engineered Transformer Radiators & Tanks. Delivered Worldwide.",
     subheadline:
-      "For over 35 years, Transpaers India Pvt Ltd has helped transformer manufacturers keep the world's power flowing — with radiators and tanks built for cooling performance, long service life, and dependable on-time delivery.",
+      "For over 30 years, Transpares Limited has helped transformer manufacturers keep the world's power flowing — with radiators and tanks built for cooling performance, long service life, and dependable on-time delivery.",
     primaryCta: "Request a Quote",
     secondaryCta: "Explore Our Products",
   },
@@ -208,22 +216,24 @@ export const home = {
     linkLabel: "More About Us",
   },
   stats: [
-    { value: "35+", label: "Years Since Inception" },
+    { value: "30+", label: "Years Since Inception" },
     { value: "55+", label: "Countries We Export To" },
     { value: "400+", label: "Clients Served" },
     { value: "20,000 m²", label: "Production Area" },
   ] as Stat[],
   marqueeChips: [
-    "35+ Years Since Inception",
+    "30+ Years Since Inception",
     "55+ Countries We Export To",
     "400+ Clients Served",
     "20,000 m² Production Area",
     "Fin widths: 300 / 380 / 520 mm",
-    "Pitch sizes: 40 / 45 / 50 / 55 mm",
+    "Pitch sizes: 40 / 45 / 50 / 55 / 60 mm",
     "Centre lengths up to 4000 mm",
     "ISO 9001:2015 Certified",
+    "ISO 14001 Certified",
     "NTPC & PGCIL Approved",
-    "Capacity: 8000 MT / Year",
+    "PGCIL 765 kV",
+    "Capacity: 12,000 MT / Year",
     "Flood Coating Process",
     "100% Leak Tested",
     "Custom Dimensions & Finishes",
@@ -245,7 +255,7 @@ export const home = {
         icon: "Cpu",
         title: "Advanced Technology",
         description:
-          "Internationally advanced production equipment and proven mastery of core heat-dissipation technology — including a PLC-controlled, fully automated internal cleaning and coating process.",
+          "Internationally advanced production equipment and proven mastery of core heat-dissipation technology — including moisture content (PPM) and particle count meters on the internal cleaning and coating process.",
       },
       {
         icon: "ShieldCheck",
@@ -263,13 +273,13 @@ export const home = {
         icon: "Container",
         title: "In-House Hot-Dip Galvanizing",
         description:
-          "A state-of-the-art HDG facility with a 5 m × 2.5 m × 2.5 m zinc bath gives us complete control over corrosion protection, quality, and lead time.",
+          "A state-of-the-art in-house HDG facility gives us complete control over corrosion protection, quality, and lead time.",
       },
       {
         icon: "BadgeCheck",
         title: "Certified Specialists",
         description:
-          "NACE-certified engineers, FROSIO-qualified coating professionals, and 100+ inspectors trained under the IWE (International Welding Engineer) programme.",
+          "NACE-certified engineers and a dedicated inspection team supporting coating integrity and welding quality on every product.",
       },
       {
         icon: "Zap",
@@ -296,7 +306,7 @@ export const home = {
           "Designed with flange-mounted fittings for secure and easy installation. It provides excellent mechanical stability and simplifies maintenance or replacement in power distribution systems.",
         path: "/products/flange-type",
         cta: "View Details",
-        image: "/flanged-type-transformer-radiator-485.jpg",
+        image: "/hot-dip-galvanized.jpeg",
       },
       {
         icon: "Zap",
@@ -314,7 +324,7 @@ export const home = {
           "Manufactured with hot-dip galvanized components to provide superior corrosion resistance. This protective coating enhances durability, making it suitable for harsh outdoor and industrial environments.",
         path: "/products/hot-dip-galvanized",
         cta: "View Details",
-        image: "/hot-dip-galvanized.jpeg",
+        image: "/hot-dip-galvanized-radiators.png",
       },
       {
         icon: "GitCommitVertical",
@@ -325,11 +335,20 @@ export const home = {
         cta: "View Details",
         image: "/offset-type-radiators.jpeg",
       },
+      {
+        icon: "Wind",
+        title: "Goose Neck Type Transformer",
+        description:
+          "Swan neck / goose neck / sky type radiators use offset, elbowed headers so tank connections stay accessible where a straight header cannot. The curved neck simplifies installation without compromising cooling performance.",
+        path: "/products/goose-neck-type",
+        cta: "View Details",
+        image: "/hot-dip-galvanized-radiators.png",
+      },
     ] as ProductPreviewCard[],
   },
   applicationsPreview: {
     heading: "Trusted Across Industries and Continents",
-    body: "From national grid substations and nuclear power plants to railway traction, offshore wind, and solar parks — Transpaers radiators perform wherever transformers work hardest, including coastal and offshore environments that punish lesser products.",
+    body: "From national grid substations and nuclear power plants to railway traction, offshore wind, and solar parks — Transpares radiators perform wherever transformers work hardest, including coastal and offshore environments.",
     sectors: [
       "Power Utilities",
       "EHV/UHV Substations",
@@ -343,7 +362,7 @@ export const home = {
     cta: "See Application Cases",
   },
   certifications: {
-    strip: "ISO 9001 · ISO 14001 · ISO 45001 · ISO 3834-2 · ISO 14064-3:2019 · Certified Three Star Export House",
+    strip: "ISO 9001 · ISO 14001 · NTPC Approved · PGCIL Approved · PGCIL 765 kV",
   },
   sustainability: {
     heading: "Manufacturing Responsibly",
@@ -365,24 +384,23 @@ export const about = {
   whoWeAre: {
     heading: "Who We Are",
     paragraphs: [
-      "Founded over 35 years ago, Transpaers India Pvt Ltd has grown from a modest 1,800 m² workshop into one of the industry's most trusted manufacturers of transformer radiators and corrugated tanks — today operating 20,000 m² of state-of-the-art facilities across 5 plants.",
-      "That growth has been deliberate. Year after year, we have reinvested in advanced machinery, automation, and technology: a PLC-controlled internal cleaning and coating line that guarantees contamination-free internals, and an in-house hot-dip galvanizing facility that gives us full command over corrosion protection and delivery schedules. The result for our customers is simple — shorter lead times, tighter quality control, and greater operational flexibility.",
-      "Today, Transpaers serves 400+ clients through 200+ business partners across 55+ countries, supported by 250+ professionals, 1,200+ skilled workers, and 100+ trained inspectors.",
+      "Founded over 30 years ago, Transpares Limited has grown from a modest 1,800 m² workshop into one of the industry's most trusted manufacturers of transformer radiators and corrugated tanks — today operating 20,000 m² of state-of-the-art facilities.",
+      "That growth has been deliberate. Year after year, we have reinvested in advanced machinery, automation, and technology: a PLC-controlled internal cleaning and coating line that guarantees contamination-free internals, and an hot-dip galvanizing facility that gives us full command over corrosion protection and delivery schedules. The result for our customers is simple — shorter lead times, tighter quality control, and greater operational flexibility.",
     ],
   },
   glance: {
     heading: "Transpaers at a Glance",
     items: [
       { label: "Export Status", value: "Certified Three Star Export House" },
-      { label: "Certifications", value: "ISO 9001 · ISO 14001 · ISO 45001 · ISO 3834-2" },
-      { label: "Annual Operational Capability", value: "24,000 MT of radiators and 7,200 MT of tanks" },
-      { label: "Manufacturing Area", value: "20,000 m² across 5 plants" },
+      { label: "Certifications", value: "ISO 9001 · ISO 14001 · NTPC · PGCIL" },
+      { label: "Annual Operational Capability", value: "12,000 MT of radiators" },
+      { label: "Manufacturing Area", value: "20,000 m²" },
       { label: "Design Capability", value: "Dedicated New Product Development (NPD) team" },
       {
         label: "Certified Specialists",
-        value: "NACE-certified engineers · FROSIO-qualified professionals · IWE-trained inspectors",
+        value: "NACE-certified engineers",
       },
-      { label: "Connectivity", value: "X hrs by road from International Airport · X hrs from Major Sea Port" },
+      { label: "Connectivity", value: "Kandla Port — 250 km" },
     ] as Stat[],
   },
   visionMissionMotto: {
@@ -402,41 +420,19 @@ export const about = {
   leadership: {
     heading: "Leadership",
     founder: {
-      title: "Founder & Chairman",
-      bio: "Transpaers India Pvt Ltd was founded by our Founder & Chairman, whose vision transformed a small fabrication unit into a globally recognized manufacturer of galvanized fin-type radiators and corrugated flat-wall tanks. With over three decades of industry experience, our Founder & Chairman brought the technical depth and long-term thinking that shaped the company from its earliest days. As Chairman, our Founder & Chairman continues to oversee the company's strategic direction while championing the culture of innovation, quality, and customer commitment that defines Transpaers to this day. Under this leadership, the company's story has become one of steady, values-driven growth — and of long-term trust earned from transformer manufacturers around the world.",
+      title: "Managing Director",
+      name: "Hitendra Doshi",
+      bio: "Transpares Limited is led by Hitendra Doshi, whose vision transformed a small fabrication unit into a globally recognized manufacturer of galvanized fin-type radiators and corrugated flat-wall tanks. With over three decades of industry experience, he brought the technical depth and long-term thinking that shaped the company from its earliest days. As Managing Director, Hitendra Doshi continues to oversee the company's strategic direction while championing the culture of innovation, quality, and customer commitment that defines Transpares to this day. Under this leadership, the company's story has become one of steady, values-driven growth — and of long-term trust earned from transformer manufacturers around the world.",
     },
   },
   milestones: [
-    {
-      period: "Foundation",
-      title: "Company Founded",
-      description: "Company founded in a 1,800 m² facility.",
-    },
-    {
-      period: "Early Growth",
-      title: "First Export Shipment",
-      description: "First export shipment.",
-    },
-    {
-      period: "Capability Investment",
-      title: "In-House HDG Facility Commissioned",
-      description: "In-house HDG facility commissioned.",
-    },
-    {
-      period: "Process Automation",
-      title: "Automated Coating Line Installed",
-      description: "PLC-controlled internal cleaning & coating line installed.",
-    },
-    {
-      period: "Global Milestone",
-      title: "55+ Countries, 400+ Clients",
-      description: "Crossed 55+ export countries / 400+ clients.",
-    },
-    {
-      period: "Continued Growth",
-      title: "Latest Expansion",
-      description: "Latest expansion or certification.",
-    },
+    { period: "1995", title: "Incorporation" },
+    { period: "2003", title: "NTPC Approvals" },
+    { period: "2006", title: "PGCIL (220 kV) Approvals" },
+    { period: "2008", title: "RDSO Approvals" },
+    { period: "2015", title: "HDG Radiators" },
+    { period: "2024", title: "Automation Line" },
+    { period: "2025", title: "PGCIL (765 kV) Approvals" },
   ] as Milestone[],
 };
 
@@ -448,7 +444,7 @@ export const products = {
   overview: {
     heading: "Overview",
     paragraphs: [
-      "We professionally manufacture flange type, weldable type, hot-dip galvanized, and offset type transformer radiators — engineered for secure installation, structural strength, corrosion resistance, and flexible mounting. Every product is built for maximum heat dissipation, long service life, and full compliance with international standards, and every product is backed by our quality guarantee.",
+      "We professionally manufacture flange type, weldable type, hot-dip galvanized, offset type, and goose neck (swan neck / sky type) transformer radiators — engineered for secure installation, structural strength, corrosion resistance, and flexible mounting. Every product is built for maximum heat dissipation, long service life, and full compliance with international standards, and every product is backed by our quality guarantee.",
     ],
   },
   configurations: {
@@ -460,7 +456,7 @@ export const products = {
         path: "/products/flange-type",
         description:
           "Designed with flange-mounted fittings for secure and easy installation. It provides excellent mechanical stability and simplifies maintenance or replacement in power distribution systems.",
-        image: "/flanged-type-transformer-radiator-485.jpg",
+        image: "/hot-dip-galvanized.jpeg",
       },
       {
         name: "Weldable Type Transformer",
@@ -476,7 +472,7 @@ export const products = {
         path: "/products/hot-dip-galvanized",
         description:
           "Manufactured with hot-dip galvanized components to provide superior corrosion resistance. This protective coating enhances durability, making it suitable for harsh outdoor and industrial environments.",
-        image: "/hot-dip-galvanized.jpeg",
+        image: "/hot-dip-galvanized-radiators.png",
       },
       {
         name: "Offset Type Transformer",
@@ -485,6 +481,14 @@ export const products = {
         description:
           "Designed with an offset mounting configuration to accommodate specific installation requirements where space or alignment is constrained. It offers greater flexibility while maintaining reliable electrical performance.",
         image: "/offset-type-radiators.jpeg",
+      },
+      {
+        name: "Goose Neck Type Transformer",
+        slug: "goose-neck-type",
+        path: "/products/goose-neck-type",
+        description:
+          "Swan neck / goose neck / sky type radiators use offset, elbowed headers so tank connections stay accessible where a straight header cannot. The curved neck simplifies installation without compromising cooling performance.",
+        image: "/hot-dip-galvanized-radiators.png",
       },
     ] as RadiatorConfiguration[],
   },
@@ -529,7 +533,6 @@ export const products = {
   applicationClasses: {
     heading: "Product Range by Application Class",
     items: [
-      "Plate radiators for power transformers up to 550 kV class, including 110 kV and 220 kV systems",
       "Radiators for oil-immersed and oil-filled distribution transformers — our highest-volume product line",
       "Flanged and flange-less plate radiators for distribution transformers",
       "Radiators for special-duty transformers: railway traction, rectifier, and electric-furnace applications",
@@ -540,14 +543,15 @@ export const products = {
     heading: "Surface Treatment & Corrosion Protection",
     paragraphs: [
       "Corrosion protection is where radiators live or die — so we brought it entirely in-house.",
-      "Our hot-dip galvanizing facility, with a zinc bath of 5 m × 2.5 m × 2.5 m, delivers uniform, deeply bonded zinc coverage on every fin and header. For painted finishes, our coating systems conform to ISO 12944-5 and can be specified for aggressive service conditions, including coastal and offshore environments. Where maximum protection is required, we offer a duplex system: hot-dip galvanizing followed by painting.",
-      "Internally, our PLC-controlled automated cleaning and coating process ensures every radiator ships with contamination-free internal surfaces — protecting transformer oil quality from day one.",
+      "Our hot-dip galvanizing facility delivers uniform, deeply bonded coverage on every fin and header. For painted finishes, our coating systems conform to ISO 12944-5 and can be specified for aggressive service conditions, including coastal and offshore environments. Where maximum protection is required, we offer a duplex system: hot-dip galvanizing followed by painting.",
+      "Internally, moisture content (PPM) and particle count meters on our automated cleaning and coating process ensure every radiator ships with contamination-free internal surfaces — protecting transformer oil quality from day one.",
     ],
   },
   tanks: {
     heading: "Transformer Tanks",
-    body: "Alongside radiators, Transpaers manufactures corrugated flat-wall tanks for distribution transformers, with an annual capability of 7,200 MT. Tanks are fabricated under our ISO 3834-2-certified welding quality system, leak-tested, and finished with the same surface treatment options as our radiators — giving transformer builders a matched, single-source cooling and enclosure package.",
-    path: "/products/transformer-tanks",
+    body: "Alongside radiators, Transpares manufactures corrugated flat-wall tanks for distribution transformers. Tanks are fabricated, leak-tested, and finished with the same surface treatment options as our radiators — giving transformer builders a matched, single-source cooling and enclosure package.",
+    path: "/contact-us",
+    cta: "Contact Us",
   },
   npd: {
     heading: "Custom Development & NPD",
@@ -620,6 +624,16 @@ export const applications = {
 // ---------------------------------------------------------------------------
 
 export const quality = {
+  documents: [
+    {
+      title: "Performance Certificates",
+      file: "/23.Performance Certificates.pdf",
+    },
+    {
+      title: "Transpares Limited — 11 December 2026",
+      file: "/Transpares Limited_ 11.Dec.2026.pdf",
+    },
+  ],
   philosophy: {
     heading: "Our Quality Philosophy",
     paragraphs: [
@@ -631,19 +645,39 @@ export const quality = {
     items: [
       { name: "ISO 9001", description: "Quality Management System" },
       { name: "ISO 14001", description: "Environmental Management System" },
+      { name: "NTPC Approved", description: "Approved vendor for NTPC transformer radiator supply" },
+      { name: "PGCIL Approved", description: "Approved for Power Grid Corporation of India Limited, including 765 kV class" },
       { name: "ISO 45001", description: "Occupational Health & Safety Management" },
       { name: "ISO 3834-2", description: "Comprehensive quality requirements for fusion welding" },
-      { name: "ISO 14064-3:2019", description: "Verification of greenhouse gas assertions" },
-      { name: "Certified Three Star Export House", description: "Government of India recognition for export excellence" },
     ] as Certification[],
+    boards: [
+      {
+        name: "ISO 9001:2015",
+        subtitle: "Quality Management System",
+        image: "",
+      },
+      {
+        name: "ISO 14001",
+        subtitle: "Environmental Management System",
+        image: "",
+      },
+      {
+        name: "NTPC",
+        subtitle: "Approved Board",
+        image: "",
+      },
+      {
+        name: "PGCIL 765 kV",
+        subtitle: "Approved Board",
+        image: "",
+      },
+    ],
   },
   people: {
     heading: "Certified People, Not Just Certified Paper",
     intro: "Standards only matter when people live them. Our payroll includes:",
     items: [
       "NACE-certified engineers for corrosion control and coating integrity",
-      "FROSIO-qualified professionals for surface treatment and painting inspection",
-      "100+ inspectors trained under the IWE (International Welding Engineer) programme",
       "Mechanical engineering graduates as the minimum qualification for business development and operations roles",
     ],
   },
@@ -659,7 +693,7 @@ export const quality = {
     ],
   },
   cta: {
-    body: "Request our quality dossier with your next enquiry.",
+    body: "Request our quality dossier when you get in touch.",
     primaryCta: "Contact Us",
   } as CtaBlock,
 };
@@ -671,8 +705,8 @@ export const quality = {
 export const manufacturing = {
   scale: {
     heading: "Built for Scale, Tuned for Speed",
-    body: "Transpaers operates 20,000 m² of manufacturing area across 5 plants, engineered as one integrated flow — from sheet forming and fin welding to surface treatment, testing, and packing. Our operations and systems are optimized for one outcome: exceptional quality at minimal lead time, with the flexibility to absorb urgent customer requirements.",
-    capability: "Annual operational capability: 24,000 MT of radiators · 7,200 MT of tanks",
+    body: "Transpares operates 20,000 m² of manufacturing area, engineered as one integrated flow — from sheet forming and fin welding to surface treatment, testing, and packing. Our operations and systems are optimized for one outcome: exceptional quality at minimal lead time, with the flexibility to absorb urgent customer requirements.",
+    capability: "Annual operational capability: 12,000 MT of radiators",
   },
   hdg: {
     heading: "In-House Hot-Dip Galvanizing",
@@ -680,22 +714,28 @@ export const manufacturing = {
   },
   automation: {
     heading: "Automation Where It Counts",
-    body: "A PLC-controlled, fully automated internal cleaning and coating process guarantees clean, protected internal surfaces on every radiator — a decisive factor in transformer oil integrity and long-term reliability.",
+    body: "Moisture content (PPM) and particle count meters on our internal cleaning and coating process guarantee clean, protected internal surfaces on every radiator — a decisive factor in transformer oil integrity and long-term reliability.",
+    equipment: [
+      "Fin Automation Machine",
+      "Orbital Welding machine",
+      "Shot blasting automated machine",
+      "CNC based paint flow system",
+      "Moisture content (PPM) and Particle Count meters for internal cleaning and coating process",
+    ],
   },
   people: {
     heading: "Our People",
     items: [
-      "250+ professionals across 5 plants",
+      "250+ professionals",
       "1,200+ skilled workers on the shop floor",
-      "100+ inspectors trained under the IWE programme",
+      "A dedicated inspection team on every production line",
       "A young, dynamic team with international exposure and an engineering-first culture",
     ],
   },
   logistics: {
     heading: "Logistics Advantage",
     items: [
-      "International Airport — approx. X hrs by road",
-      "Major sea port — approx. X hrs by road",
+      "Kandla Port — 250 km",
       "Export-ready packing and documentation for 55+ destination countries",
     ],
   },
@@ -774,13 +814,15 @@ export const contact = {
   details: {
     registeredOffice:
       "14-15 Ashwamegh Industrial Estate, Sarkhej-Bavla Hwy, Changodar, Ahmedabad, Gujarat 382213",
-    phones: ["(02717) 250633", "+91 968 765 9980"],
-    phone: "+91 968 765 9980",
-    email: "vpswaran@transparesindia.com",
-    emails: [{ label: "Email", value: "vpswaran@transparesindia.com" }],
+    phones: ["(02717) 250633", "+91 96876 59985"],
+    phone: "+91 96876 59985",
+    email: "tpmarketing@transparesindia.com",
+    emails: [
+      { label: "Marketing", value: "tpmarketing@transparesindia.com" },
+      { label: "Sales", value: "rahil.doshi@transparesindia.com" },
+    ],
     businessHours: "Mon–Sat, 9:00 AM – 6:00 PM IST",
-    connectivity:
-      "X hrs by road from International Airport · X hrs from Major Sea Port",
+    connectivity: "Kandla Port — 250 km",
   },
   formFields: {
     fields: ["Name", "Company", "Country", "Email", "Phone", "Product of Interest", "Message", "Attach Drawing"],
@@ -789,6 +831,7 @@ export const contact = {
       "Weldable Type Transformer",
       "Hot-Dip Galvanized Transformer",
       "Offset Type Transformer",
+      "Goose Neck Type Transformer",
       "Custom",
     ],
   },
@@ -796,7 +839,7 @@ export const contact = {
     heading: "Help Us Quote Faster — RFQ Checklist",
     intro: "To receive the fastest, most accurate quotation, please include:",
     items: [
-      "Radiator type and configuration (flange / weldable / hot-dip galvanized / offset)",
+      "Radiator type and configuration (flange / weldable / hot-dip galvanized / offset / goose neck)",
       "Fin length, width, thickness, and number of fins/sections",
       "Material grade and surface treatment required (HDG / painted / HDG + painted)",
       "Applicable standards and inspection requirements",
@@ -804,4 +847,22 @@ export const contact = {
       "Destination port or delivery location",
     ],
   },
+};
+
+// ---------------------------------------------------------------------------
+// Clients
+// ---------------------------------------------------------------------------
+
+export const clients = {
+  heading: "Our Clients",
+  intro:
+    "Transpares Limited supplies pressed steel transformer radiators to OEMs and utilities across India and export markets — backed by NTPC and PGCIL approvals, including 765 kV.",
+  items: [
+    "Transformers & Rectifiers (India) Ltd",
+    "NTPC",
+    "PGCIL",
+    "Power Utilities",
+    "Transformer OEMs",
+    "Export Partners",
+  ],
 };

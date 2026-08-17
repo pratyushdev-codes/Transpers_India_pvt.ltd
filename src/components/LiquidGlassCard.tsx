@@ -15,7 +15,7 @@ export default function LiquidGlassCard() {
           className="font-[family-name:var(--font-inter)] font-medium tracking-wide text-white/80"
           style={{ fontSize: 14 }}
         >
-          [ 35+ YEARS ]
+          [ 30+ YEARS ]
         </span>
 
         <h2

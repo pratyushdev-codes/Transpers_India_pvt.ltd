@@ -23,28 +23,22 @@ export default function ManufacturingPage() {
         </div>
       </section>
 
-      {/* HDG */}
-      <section className="site-section bg-[#e8f6ef]">
-        <div className="container-site grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <SectionHeading eyebrow="Corrosion Protection" title={manufacturing.hdg.heading} />
-            <p className="mt-6 text-base leading-relaxed text-[#4d655a]">{manufacturing.hdg.body}</p>
-          </div>
-          <div className="rounded-3xl bg-[#0f7a4f] p-8 text-white md:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#5ed29c]">Zinc Bath Size</p>
-            <p className="mt-4 text-3xl font-extrabold md:text-4xl">5 m × 2.5 m × 2.5 m</p>
-            <p className="mt-4 text-sm leading-relaxed text-white/80">
-              Full in-house control over corrosion protection, quality, and lead time.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Automation */}
-      <section className="site-section bg-white">
+      <section className="site-section bg-[#e8f6ef]">
         <div className="container-site">
           <SectionHeading eyebrow="Process Control" title={manufacturing.automation.heading} />
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-[#4d655a]">{manufacturing.automation.body}</p>
+          <ul className="mt-8 grid gap-4 md:grid-cols-2">
+            {manufacturing.automation.equipment.map((item) => (
+              <li
+                key={item}
+                className="flex gap-3 rounded-xl border border-[#d8eee3] bg-white p-5 text-sm leading-relaxed text-[#4d655a]"
+              >
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#0f7a4f]" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

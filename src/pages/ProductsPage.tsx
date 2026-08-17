@@ -142,7 +142,7 @@ export default function ProductsPage() {
             to={products.tanks.path}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0f7a4f] px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-[#0a5c3b]"
           >
-            View Tanks
+            {products.tanks.cta}
             <ArrowRight size={16} />
           </Link>
         </div>

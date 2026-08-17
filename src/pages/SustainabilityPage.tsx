@@ -76,7 +76,7 @@ export default function SustainabilityPage() {
 
       <CtaBand
         heading="Partner With a Responsible Manufacturer"
-        body="Ask us for our sustainability report and GHG verification documentation with your next enquiry."
+        body="Ask us for our sustainability report and GHG verification documentation when you get in touch."
         primaryLabel="Request a Quote"
         primaryTo="/contact-us"
       />

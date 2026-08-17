@@ -1,5 +1,6 @@
 import Seo from '../components/ui/Seo'
 import { SectionHeading, PageHero, CtaBand } from '../components/ui/Section'
+import MilestonesTimeline from '../components/MilestonesTimeline'
 import { about, brand, seo } from '../data/content'
 
 export default function AboutPage() {
@@ -7,7 +8,7 @@ export default function AboutPage() {
     <>
       <Seo title={seo.about.title} description={seo.about.description} />
       <PageHero
-        title="About Transpaers India Pvt Ltd"
+        title="About Transpares Limited"
         description={about.whoWeAre.paragraphs[0]}
         breadcrumbs={[{ label: 'Home', path: '/' }, { label: 'About Us' }]}
       />
@@ -77,6 +78,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#5ed29c]">
               {about.leadership.founder.title}
             </p>
+            <h3 className="mt-3 text-2xl font-bold text-white">{about.leadership.founder.name}</h3>
             <p className="mt-4 text-sm leading-relaxed text-white/85 md:text-base">
               {about.leadership.founder.bio}
             </p>
@@ -84,24 +86,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Milestones */}
-      <section className="site-section bg-white">
-        <div className="container-site">
-          <SectionHeading eyebrow="Our Journey" title="Milestones" />
-          <ol className="mt-12 space-y-8 border-l-2 border-[#d8eee3] pl-8">
-            {about.milestones.map((milestone) => (
-              <li key={milestone.title} className="relative">
-                <span className="absolute -left-[calc(2rem+5px)] top-1 h-3 w-3 rounded-full bg-[#0f7a4f]" />
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0f7a4f]">
-                  {milestone.period}
-                </p>
-                <h3 className="mt-1 text-lg font-bold text-[#123028]">{milestone.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#4d655a]">{milestone.description}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <MilestonesTimeline items={about.milestones} />
 
       <CtaBand
         heading="Let's Build a Reliable Partnership"

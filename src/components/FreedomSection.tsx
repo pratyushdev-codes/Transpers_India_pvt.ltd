@@ -15,7 +15,7 @@ const items = [
     icon: 'Cpu',
     title: 'Advanced Technology',
     description:
-      'Internationally advanced production equipment and proven mastery of core heat-dissipation technology — including a PLC-controlled, fully automated internal cleaning and coating process.',
+      'Internationally advanced production equipment and proven mastery of core heat-dissipation technology — including moisture content (PPM) and particle count meters on the internal cleaning and coating process.',
   },
   {
     icon: 'ShieldCheck',
@@ -33,13 +33,13 @@ const items = [
     icon: 'Container',
     title: 'In-House Hot-Dip Galvanizing',
     description:
-      'A state-of-the-art HDG facility with a 5 m × 2.5 m × 2.5 m zinc bath gives us complete control over corrosion protection, quality, and lead time.',
+      'A state-of-the-art in-house HDG facility gives us complete control over corrosion protection, quality, and lead time.',
   },
   {
     icon: 'BadgeCheck',
     title: 'Certified Specialists',
     description:
-      'NACE-certified engineers, FROSIO-qualified coating professionals, and 100+ inspectors trained under the IWE (International Welding Engineer) programme.',
+      'NACE-certified engineers and a dedicated inspection team supporting coating integrity and welding quality on every product.',
   },
   {
     icon: 'Zap',

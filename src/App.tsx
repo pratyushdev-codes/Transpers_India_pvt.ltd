@@ -10,6 +10,7 @@ import QualityPage from './pages/QualityPage'
 import ManufacturingPage from './pages/ManufacturingPage'
 import SustainabilityPage from './pages/SustainabilityPage'
 import ContactPage from './pages/ContactPage'
+import ClientsPage from './pages/ClientsPage'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="manufacturing" element={<ManufacturingPage />} />
           <Route path="sustainability" element={<SustainabilityPage />} />
           <Route path="contact-us" element={<ContactPage />} />
+          <Route path="clients" element={<ClientsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

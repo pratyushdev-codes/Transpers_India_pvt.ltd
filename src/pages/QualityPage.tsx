@@ -1,3 +1,4 @@
+import { Download, ExternalLink } from 'lucide-react'
 import Seo from '../components/ui/Seo'
 import { SectionHeading, PageHero, CtaBand } from '../components/ui/Section'
 import { quality, seo } from '../data/content'
@@ -12,8 +13,96 @@ export default function QualityPage() {
         breadcrumbs={[{ label: 'Home', path: '/' }, { label: 'Quality & Certifications' }]}
       />
 
-      {/* Philosophy */}
+      {/* Credential PDFs */}
       <section className="site-section bg-white">
+        <div className="container-site">
+          <SectionHeading
+            eyebrow="Documents"
+            title="Credentials"
+            subtitle="View and download our performance certificates and company credentials."
+            gradient
+          />
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            {quality.documents.map((doc) => {
+              const href = encodeURI(doc.file)
+              return (
+                <article
+                  key={doc.file}
+                  className="flex flex-col overflow-hidden rounded-2xl border border-[#d8eee3] bg-[#f7fcf9] shadow-sm"
+                >
+                  <div className="flex items-center justify-between gap-4 border-b border-[#d8eee3] bg-white px-5 py-4">
+                    <h3 className="text-base font-bold text-[#123028] md:text-lg">{doc.title}</h3>
+                    <div className="flex shrink-0 gap-2">
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-[#0f7a4f] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[#0f7a4f] transition hover:bg-[#e8f6ef]"
+                      >
+                        <ExternalLink size={14} />
+                        View
+                      </a>
+                      <a
+                        href={href}
+                        download
+                        className="inline-flex items-center gap-1.5 rounded-full bg-[#0f7a4f] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-[#0a5c3b]"
+                      >
+                        <Download size={14} />
+                        Download
+                      </a>
+                    </div>
+                  </div>
+                  <iframe
+                    src={`${href}#toolbar=0`}
+                    title={doc.title}
+                    className="h-[70vh] w-full bg-white"
+                  />
+                </article>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Approved Boards */}
+      <section className="site-section bg-white">
+        <div className="container-site">
+          <SectionHeading
+            eyebrow="Credentials"
+            title="Approved Boards"
+            subtitle="Images and certificates of our quality systems and utility approvals — ISO 9001, ISO 14001, NTPC, and PGCIL including 765 kV."
+            gradient
+          />
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {quality.certifications.boards.map((board) => (
+              <article
+                key={board.name}
+                className="flex flex-col overflow-hidden rounded-2xl border border-[#d8eee3] bg-[#f7fcf9] shadow-sm"
+              >
+                <div className="relative flex aspect-[3/4] flex-col items-center justify-center bg-white p-6">
+                  <div className="absolute inset-3 rounded-xl border-2 border-[#0f7a4f]/20" />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0f7a4f]">
+                    Transpares Limited
+                  </p>
+                  <div className="mt-6 flex h-16 w-16 items-center justify-center rounded-full border-4 border-[#0f7a4f] text-lg font-extrabold text-[#0f7a4f]">
+                    {board.name.split(' ')[0].slice(0, 3)}
+                  </div>
+                  <h3 className="mt-6 text-center text-xl font-extrabold text-[#123028]">{board.name}</h3>
+                  <p className="mt-2 text-center text-xs font-semibold uppercase tracking-[0.12em] text-[#4d655a]">
+                    {board.subtitle}
+                  </p>
+                  <p className="mt-6 text-[10px] font-medium tracking-wide text-[#0f7a4f]/70">
+                    APPROVED BOARD · CERTIFICATE
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy */}
+      <section className="site-section bg-[#f7fcf9]">
         <div className="container-site">
           <SectionHeading eyebrow="Our Approach" title={quality.philosophy.heading} />
           <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-[#4d655a]">

@@ -13,8 +13,8 @@ const MINT = 'rgb(94, 210, 156)'
 const PILLARS = [
   { label: 'Customises', items: ['flange', 'weldable', 'hot-dip', 'offset'], leftVw: 2.8, bottomVw: 7 },
   { label: 'Manufactures', items: ['pressed steel', 'power', 'distribution', 'IEEMA'], leftVw: 22.4, bottomVw: 9.08 },
-  { label: 'Certifies', items: ['ISO 9001', 'NTPC', '3200 mm', 'quality'], leftVw: 41.2, bottomVw: 11.16 },
-  { label: 'Delivers', items: ['8000 MT/yr', 'HDG finish', '25 years', 'on-time'], leftVw: 61.1, bottomVw: 13.24 },
+  { label: 'Certifies', items: ['ISO 9001', 'NTPC', 'PGCIL 765kV', 'ISO 14001'], leftVw: 41.2, bottomVw: 11.16 },
+  { label: 'Delivers', items: ['12000 MT/yr', 'HDG finish', '30 years', 'on-time'], leftVw: 61.1, bottomVw: 13.24 },
 ]
 
 export default function PrecisionSection() {
@@ -155,7 +155,7 @@ export default function PrecisionSection() {
                 display: 'block',
               }}
             >
-              25 years of manufacturing excellence.
+              30 years of manufacturing excellence.
             </span>
           </h2>
           <p

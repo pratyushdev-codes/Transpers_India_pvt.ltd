@@ -10,12 +10,14 @@ const productLinks = [
   { label: 'Weldable Type', path: '/products/weldable-type' },
   { label: 'Hot-Dip Galvanized', path: '/products/hot-dip-galvanized' },
   { label: 'Offset Type', path: '/products/offset-type' },
+  { label: 'Goose Neck Type', path: '/products/goose-neck-type' },
   { label: 'All Products', path: '/products' },
 ]
 
 const supportLinks = [
   { label: 'Facilities', path: '/manufacturing' },
-  { label: 'Certifications', path: '/quality-certifications' },
+  { label: 'Credentials', path: '/quality-certifications' },
+  { label: 'Clients', path: '/clients' },
   { label: 'Contact Us', path: '/contact-us' },
 ]
 
@@ -117,15 +119,17 @@ export default function Footer() {
                         </a>
                       </li>
                     ))}
-                    <li>
-                      <a
-                        href={`mailto:${contact.details.email}`}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-orange-600"
-                      >
-                        <Mail size={14} className="shrink-0" />
-                        {contact.details.email}
-                      </a>
-                    </li>
+                    {contact.details.emails.map((item) => (
+                      <li key={item.value}>
+                        <a
+                          href={`mailto:${item.value}`}
+                          className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-orange-600"
+                        >
+                          <Mail size={14} className="shrink-0" />
+                          {item.value}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -138,7 +142,7 @@ export default function Footer() {
                   © {new Date().getFullYear()} TRANSPARES LIMITED. All Rights Reserved
                 </p>
                 <p className="text-xs font-medium text-gray-400">
-                  ISO 9001 · ISO 14001 · ISO 45001 · ISO 3834-2 · ISO 14064-3:2019
+                  ISO 9001 · ISO 14001 · NTPC · PGCIL
                 </p>
               </div>
 
@@ -161,11 +165,19 @@ export default function Footer() {
               <p className="text-sm font-semibold text-gray-500">
                 Developed and Maintained by
               </p>
-              <img
-                src="/Aglroyx.png"
-                alt="AlgoryX Labs and Tech"
-                className="h-8 w-auto object-contain md:h-9"
-              />
+              <a
+                href="http://algoryx.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Algoryx"
+                className="inline-flex shrink-0 transition-opacity hover:opacity-80"
+              >
+                <img
+                  src="/Aglroyx.png"
+                  alt="AlgoryX Labs and Tech"
+                  className="h-8 w-auto object-contain md:h-9"
+                />
+              </a>
             </div>
           </motion.div>
         </div>
