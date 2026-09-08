@@ -6,12 +6,12 @@ import MottoBox from '../components/MottoBox'
 import PrecisionSection from '../components/PrecisionSection'
 import Seo from '../components/ui/Seo'
 import { SectionHeading, CtaBand } from '../components/ui/Section'
-import { home, seo, clients } from '../data/content'
+import { home, seo, clients, searchTags } from '../data/content'
 
 export default function HomePage() {
   return (
     <>
-      <Seo title={seo.home.title} description={seo.home.description} />
+      <Seo {...seo.home} faq={home.faqs} />
       <Hero />
 
       {/* Welcome — green & white */}
@@ -33,6 +33,31 @@ export default function HomePage() {
             </Link>
           </div>
           <MottoBox />
+        </div>
+      </section>
+
+      <section className="site-section bg-[#f7fcf9]" aria-label="Transformer radiator manufacturer in Ahmedabad, Gujarat, India">
+        <div className="container-site">
+          <SectionHeading
+            eyebrow="Ahmedabad · Gujarat · India"
+            title={home.location.heading}
+            gradient
+          />
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-[#4d655a]">
+            {home.location.body}
+          </p>
+          <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Search tags">
+            {searchTags.map((tag) => (
+              <li key={tag.label}>
+                <Link
+                  to={tag.path}
+                  className="inline-flex rounded-full border border-[#d8eee3] bg-white px-3.5 py-1.5 text-xs font-semibold text-[#0f7a4f] transition hover:border-[#0f7a4f] hover:bg-[#e8f6ef]"
+                >
+                  {tag.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -198,6 +223,27 @@ export default function HomePage() {
             View All Clients
             <ArrowRight size={16} />
           </Link>
+        </div>
+      </section>
+
+      <section className="site-section bg-[#f7fcf9]">
+        <div className="container-site">
+          <SectionHeading
+            eyebrow="FAQs"
+            title="Radiator manufacturers in Gujarat, Ahmedabad & India"
+            gradient
+          />
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            {home.faqs.map((item) => (
+              <article
+                key={item.question}
+                className="rounded-2xl border border-[#d8eee3] bg-white p-6"
+              >
+                <h3 className="text-base font-bold leading-snug text-[#123028]">{item.question}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#4d655a]">{item.answer}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

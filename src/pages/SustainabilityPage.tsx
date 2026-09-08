@@ -6,7 +6,7 @@ import { seo, sustainability } from '../data/content'
 export default function SustainabilityPage() {
   return (
     <>
-      <Seo title={seo.sustainability.title} description={seo.sustainability.description} />
+      <Seo {...seo.sustainability} />
       <PageHero
         title="Sustainability"
         description={sustainability.commitment.body}

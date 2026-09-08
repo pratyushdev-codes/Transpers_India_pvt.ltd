@@ -31,7 +31,7 @@ function MaterialTable({ material }: { material: MaterialSpec }) {
 export default function ProductsPage() {
   return (
     <>
-      <Seo title={seo.products.title} description={seo.products.description} />
+      <Seo {...seo.products} />
       <PageHero
         title="Transformer Radiators & Tanks"
         description={products.overview.paragraphs[0]}

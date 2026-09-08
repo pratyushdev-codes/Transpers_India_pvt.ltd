@@ -6,7 +6,7 @@ import { about, brand, seo } from '../data/content'
 export default function AboutPage() {
   return (
     <>
-      <Seo title={seo.about.title} description={seo.about.description} />
+      <Seo {...seo.about} />
       <PageHero
         title="About Transpares Limited"
         description={about.whoWeAre.paragraphs[0]}

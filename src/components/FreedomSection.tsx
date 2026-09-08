@@ -30,12 +30,6 @@ const items = [
       'A single accountable partner from design and new product development through manufacturing, logistics, and after-sales support.',
   },
   {
-    icon: 'Container',
-    title: 'In-House Hot-Dip Galvanizing',
-    description:
-      'A state-of-the-art in-house HDG facility gives us complete control over corrosion protection, quality, and lead time.',
-  },
-  {
     icon: 'BadgeCheck',
     title: 'Certified Specialists',
     description:

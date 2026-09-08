@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Mail, Phone } from 'lucide-react'
+import { MapPin, Mail, Phone } from 'lucide-react'
 import { contact } from '../../data/content'
 
 const BG_IMAGE = '/Gemini_Generated_Image_kr0ynukr0ynukr0y.png'
@@ -19,13 +19,6 @@ const supportLinks = [
   { label: 'Credentials', path: '/quality-certifications' },
   { label: 'Clients', path: '/clients' },
   { label: 'Contact Us', path: '/contact-us' },
-]
-
-const socialLinks = [
-  { icon: Facebook, label: 'Facebook', href: '#' },
-  { icon: Twitter, label: 'Twitter', href: '#' },
-  { icon: Instagram, label: 'Instagram', href: '#' },
-  { icon: Linkedin, label: 'LinkedIn', href: '#' },
 ]
 
 export default function Footer() {
@@ -63,6 +56,9 @@ export default function Footer() {
                 <p className="mt-4 flex gap-2 text-sm leading-relaxed text-gray-500">
                   <MapPin size={16} className="mt-0.5 shrink-0 text-orange-500" />
                   <span>{contact.details.registeredOffice}</span>
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-gray-500">
+                  Leading transformer radiator manufacturer in Ahmedabad, Gujarat, India.
                 </p>
               </div>
 
@@ -136,27 +132,14 @@ export default function Footer() {
             </div>
 
             {/* Bottom bar */}
-            <div className="flex flex-col gap-4 border-t border-gray-100 bg-white px-6 py-5 md:flex-row md:items-center md:justify-between md:px-10 lg:px-12">
+            <div className="border-t border-gray-100 bg-white px-6 py-5 md:px-10 lg:px-12">
               <div className="space-y-1">
                 <p className="text-sm font-medium text-gray-500">
-                  © {new Date().getFullYear()} TRANSPARES LIMITED. All Rights Reserved
+                  A group co. of Transformers and Rectifiers (India) Ltd
                 </p>
                 <p className="text-xs font-medium text-gray-400">
                   ISO 9001 · ISO 14001 · NTPC · PGCIL
                 </p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                {socialLinks.map(({ icon: Icon, label, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-100 text-gray-500 transition-all duration-300 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                ))}
               </div>
             </div>
 

@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Seo from '../components/ui/Seo'
 import { SectionHeading, PageHero, CtaBand } from '../components/ui/Section'
-import { products, seo } from '../data/content'
+import { productSeo, products, seo } from '../data/content'
 
 export default function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -14,8 +14,10 @@ export default function ProductDetailPage() {
     return (
       <>
         <Seo
-          title="Product Not Found | Transpaers India Pvt Ltd"
-          description="The product you're looking for could not be found. Browse our full range of transformer radiators and tanks."
+          title="Product Not Found | Transpares Limited | Radiator Manufacturer Ahmedabad"
+          description="The product you're looking for could not be found. Browse Transpares Limited's transformer radiators manufactured in Ahmedabad, Gujarat, India."
+          keywords={seo.products.keywords}
+          path="/products"
         />
         <PageHero
           title="Product Not Found"
@@ -39,12 +41,28 @@ export default function ProductDetailPage() {
 
   const name = config ? config.name : products.tanks.heading
   const description = config ? config.description : products.tanks.body
+  const meta = slug && productSeo[slug]
 
   return (
     <>
       <Seo
-        title={`${name} | ${seo.products.title}`}
-        description={description.slice(0, 155)}
+        title={meta?.title ?? `${name} Manufacturer in Ahmedabad, Gujarat | Transpares Limited`}
+        description={
+          meta?.description ??
+          `${description.slice(0, 120)} Manufactured in Ahmedabad, Gujarat, India by Transpares Limited.`
+        }
+        keywords={
+          meta?.keywords ?? [
+            `${name} manufacturer Ahmedabad`,
+            `${name} manufacturer Gujarat`,
+            `${name} manufacturer India`,
+            `${name} radiator`,
+            ...seo.products.keywords,
+          ]
+        }
+        path={meta?.path ?? config?.path ?? '/products'}
+        productName={name}
+        productImage={config?.image}
       />
       <PageHero
         title={name}

@@ -5,7 +5,7 @@ import { applications, seo } from '../data/content'
 export default function ApplicationsPage() {
   return (
     <>
-      <Seo title={seo.applications.title} description={seo.applications.description} />
+      <Seo {...seo.applications} />
       <PageHero
         title="Application Cases"
         description={applications.overview.paragraphs[0]}

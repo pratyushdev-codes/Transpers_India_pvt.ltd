@@ -28,6 +28,18 @@ export interface NavItem {
 export interface SeoMeta {
   title: string;
   description: string;
+  keywords: string[];
+  path: string;
+}
+
+export interface SeoFaq {
+  question: string;
+  answer: string;
+}
+
+export interface SearchTag {
+  label: string;
+  path: string;
 }
 
 export interface Stat {
@@ -108,6 +120,25 @@ export const brand = {
   secondaryCtas: ["Explore Products", "Download Brochure", "Talk to Our Engineers"],
 };
 
+export const site = {
+  url: "https://transparesindia.com",
+  locale: "en_IN",
+  ogImage: "/hot-dip-galvanized.jpeg",
+  geo: {
+    region: "IN-GJ",
+    placename: "Ahmedabad, Gujarat, India",
+    position: "22.928782;72.452019",
+    icbm: "22.928782, 72.452019",
+    latitude: 22.928782,
+    longitude: 72.452019,
+    locality: "Ahmedabad",
+    regionName: "Gujarat",
+    country: "India",
+    postalCode: "382213",
+  },
+  sameAs: ["https://in.linkedin.com/company/transpares-limited"],
+};
+
 // ---------------------------------------------------------------------------
 // Navigation
 // ---------------------------------------------------------------------------
@@ -133,8 +164,88 @@ export const nav: NavItem[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// SEO
+// SEO — searchable tags & location queries
 // ---------------------------------------------------------------------------
+
+/** Core queries this site should rank for (meta keywords + on-page tags). */
+export const searchTags: SearchTag[] = [
+  { label: "Best radiator manufacturers in Gujarat", path: "/" },
+  { label: "Best radiator manufacturers in Ahmedabad", path: "/" },
+  { label: "Best radiator manufacturers in India", path: "/" },
+  { label: "Transformer radiator manufacturer Ahmedabad", path: "/products" },
+  { label: "Transformer radiator manufacturer Gujarat", path: "/products" },
+  { label: "Transformer radiator manufacturer India", path: "/products" },
+  { label: "Pressed steel radiator manufacturer", path: "/products" },
+  { label: "Flange type radiator", path: "/products/flange-type" },
+  { label: "Weldable type radiator", path: "/products/weldable-type" },
+  { label: "Hot-dip galvanized radiator", path: "/products/hot-dip-galvanized" },
+  { label: "Offset type radiator", path: "/products/offset-type" },
+  { label: "Goose neck radiator", path: "/products/goose-neck-type" },
+  { label: "Corrugated transformer tanks", path: "/products" },
+  { label: "NTPC approved radiator manufacturer", path: "/quality-certifications" },
+  { label: "PGCIL 765 kV approved", path: "/quality-certifications" },
+  { label: "In-house HDG Ahmedabad", path: "/manufacturing" },
+  { label: "Changodar, Ahmedabad", path: "/contact-us" },
+];
+
+export const coreKeywords = [
+  "best radiator manufacturers in Gujarat",
+  "best radiator manufacturers in Ahmedabad",
+  "best radiator manufacturers in India",
+  "best radiator manufacturer in Gujarat",
+  "best radiator manufacturer in Ahmedabad",
+  "best radiator manufacturer in India",
+  "top radiator manufacturers in Gujarat",
+  "top radiator manufacturers in Ahmedabad",
+  "top radiator manufacturers in India",
+  "leading radiator manufacturers in Gujarat",
+  "leading radiator manufacturers in Ahmedabad",
+  "leading radiator manufacturers in India",
+  "best transformer radiator manufacturers in Gujarat",
+  "best transformer radiator manufacturers in Ahmedabad",
+  "best transformer radiator manufacturers in India",
+  "radiator manufacturer in Gujarat",
+  "radiator manufacturer in Ahmedabad",
+  "radiator manufacturer in India",
+  "radiator manufacturers Gujarat",
+  "radiator manufacturers Ahmedabad",
+  "radiator manufacturers India",
+  "transformer radiator manufacturer in Gujarat",
+  "transformer radiator manufacturer in Ahmedabad",
+  "transformer radiator manufacturer in India",
+  "transformer radiator manufacturers Gujarat",
+  "transformer radiator manufacturers Ahmedabad",
+  "transformer radiator manufacturers India",
+  "pressed steel radiator manufacturer India",
+  "pressed steel radiator manufacturer Ahmedabad",
+  "pressed steel radiator manufacturer Gujarat",
+  "fin type radiator manufacturer India",
+  "transformer radiator supplier Ahmedabad",
+  "transformer radiator supplier Gujarat",
+  "transformer radiator supplier India",
+  "hot dip galvanized radiator manufacturer Gujarat",
+  "hot dip galvanized radiator manufacturer Ahmedabad",
+  "HDG radiator manufacturer India",
+  "flange type transformer radiator manufacturer",
+  "weldable type transformer radiator manufacturer",
+  "goose neck transformer radiator manufacturer",
+  "offset type transformer radiator manufacturer",
+  "corrugated transformer tank manufacturer Ahmedabad",
+  "NTPC approved radiator manufacturer",
+  "PGCIL approved radiator manufacturer",
+  "ISO 9001 radiator manufacturer India",
+  "Transpares Limited",
+  "Transpares India",
+  "Transpaers India",
+  "Changodar Ahmedabad radiator",
+  "Sarkhej Bavla Highway manufacturer",
+  "radiator factory Ahmedabad",
+  "radiator plant Gujarat",
+];
+
+function withCoreKeywords(...extra: string[]): string[] {
+  return [...new Set([...extra, ...coreKeywords])];
+}
 
 export const seo: Record<
   | "home"
@@ -149,49 +260,140 @@ export const seo: Record<
   SeoMeta
 > = {
   home: {
-    title: "Transformer Radiator & Tank Manufacturer in India | Transpaers India Pvt Ltd",
+    title: "Best Radiator Manufacturers in Ahmedabad, Gujarat & India | Transpares Limited",
     description:
-      "Transpaers India Pvt Ltd manufactures transformer radiators and corrugated tanks for power and distribution transformers. ISO-certified quality, in-house HDG, exports to 55+ countries. Request a quote today.",
+      "Transpares Limited is a leading transformer radiator manufacturer in Ahmedabad, Gujarat, India. ISO 9001 pressed steel radiators — flange, weldable, HDG, offset and goose neck — with NTPC and PGCIL 765 kV approvals. 30+ years, 12,000 MT/year.",
+    keywords: withCoreKeywords(
+      "best radiator manufacturer Ahmedabad",
+      "leading transformer radiator company Gujarat",
+    ),
+    path: "/",
   },
   about: {
-    title: "About Transpaers India Pvt Ltd | Transformer Radiator & Tank Manufacturer",
+    title: "About Transpares Limited | Radiator Manufacturer in Ahmedabad, Gujarat",
     description:
-      "Learn about Transpaers India Pvt Ltd — our journey, facilities, leadership, vision, and the values that make us a trusted global partner for transformer cooling solutions.",
+      "Learn about Transpares Limited, a transformer radiator and tank manufacturer in Changodar, Ahmedabad, Gujarat, India — 30+ years, 20,000 m² facilities, and a trusted partner to OEMs worldwide.",
+    keywords: withCoreKeywords("about Transpares Limited Ahmedabad", "radiator company Gujarat history"),
+    path: "/about-us",
   },
   products: {
-    title: "Transformer Radiators — Flange, Weldable, Hot-Dip Galvanized & Offset | Transpaers India",
+    title: "Transformer Radiators in Ahmedabad, Gujarat | Flange, Weldable, HDG | Transpares",
     description:
-      "Explore Transpaers India's product range: flange type, weldable type, hot-dip galvanized, and offset type transformer radiators — engineered for secure installation, durability, and reliable performance.",
+      "Buy transformer radiators from a manufacturer in Ahmedabad, Gujarat, India: flange type, weldable, hot-dip galvanized, offset, and goose neck — plus corrugated tanks. Engineered for cooling performance and export.",
+    keywords: withCoreKeywords(
+      "transformer radiators Ahmedabad",
+      "transformer radiators Gujarat",
+      "transformer radiators India",
+    ),
+    path: "/products",
   },
   applications: {
-    title: "Application Cases | Transformer Radiators in Power, Rail, Renewables & Offshore | Transpaers India",
+    title: "Transformer Radiator Applications | Power, Rail & Renewables | Transpares India",
     description:
-      "See where Transpaers India radiators perform — grid substations, power plants, railway traction, renewables, and harsh coastal and offshore environments across 55+ countries.",
+      "Transpares radiators from Ahmedabad, Gujarat serve grid substations, power plants, railway traction, renewables, and coastal/offshore sites across India and export markets.",
+    keywords: withCoreKeywords("transformer radiator applications India", "power transformer cooling Gujarat"),
+    path: "/applications",
   },
   quality: {
-    title: "Quality & Certifications | ISO 9001, ISO 14001, NTPC & PGCIL Approved | Transpares Limited",
+    title: "ISO 9001, NTPC & PGCIL Approved Radiator Manufacturer | Transpares Ahmedabad",
     description:
-      "Quality at Transpares Limited: ISO 9001, ISO 14001 certified systems, NTPC and PGCIL approved — including PGCIL 765 kV — with stage-wise inspection on every product.",
+      "Quality at Transpares Limited, Ahmedabad: ISO 9001, ISO 14001, NTPC and PGCIL approved — including PGCIL 765 kV — with stage-wise inspection on every transformer radiator.",
+    keywords: withCoreKeywords("ISO 9001 radiator manufacturer Ahmedabad", "PGCIL 765 kV radiator"),
+    path: "/quality-certifications",
   },
   manufacturing: {
-    title: "Manufacturing Facilities | In-House HDG & Automated Coating | Transpares Limited",
+    title: "Radiator Manufacturing Plant in Ahmedabad, Gujarat | HDG & Automation | Transpares",
     description:
-      "Tour Transpares Limited's manufacturing strength: 20,000 m² of production area, 12,000 MT annual radiator capacity, and moisture content (PPM) and particle count meters on the internal cleaning and coating process.",
+      "Tour Transpares Limited's Ahmedabad manufacturing plant: 20,000 m² production area, 12,000 MT annual radiator capacity, in-house hot-dip galvanizing, and automated internal coating.",
+    keywords: withCoreKeywords(
+      "radiator manufacturing plant Ahmedabad",
+      "radiator factory Gujarat",
+      "in-house HDG Ahmedabad",
+    ),
+    path: "/manufacturing",
   },
   sustainability: {
-    title: "Sustainability | Responsible Transformer Radiator Manufacturing | Transpaers India",
+    title: "Sustainable Radiator Manufacturing in Gujarat, India | Transpares Limited",
     description:
-      "Transpaers India's sustainability commitments: ISO 14064-3 verified GHG accounting, energy efficiency, circular economy practices, waste reduction, and a rigorous environmental policy.",
+      "Transpares Limited's Ahmedabad plant runs ISO 14064-3 verified GHG accounting, energy-saving targets, circular economy practices, and ISO 14001 environmental management.",
+    keywords: withCoreKeywords("sustainable radiator manufacturing India", "ISO 14001 manufacturer Gujarat"),
+    path: "/sustainability",
   },
   contact: {
-    title: "Contact Transpares Limited | Transformer Radiators & Tanks",
+    title: "Contact Transpares Limited | Radiator Manufacturer in Ahmedabad, Gujarat",
     description:
-      "Get in touch with Transpares Limited for quotations and technical support on transformer radiators and tanks. Fast responses from an engineering-led team.",
+      "Contact Transpares Limited in Changodar, Ahmedabad, Gujarat 382213 for transformer radiator and tank quotations. Phone +91 96876 59985. Fast responses from an engineering-led team.",
+    keywords: withCoreKeywords(
+      "Transpares Limited contact Ahmedabad",
+      "radiator manufacturer Changodar",
+      "transformer radiator quote Gujarat",
+    ),
+    path: "/contact-us",
   },
   clients: {
-    title: "Our Clients | Transformer OEM Partners | Transpares Limited",
+    title: "Clients of Transpares Limited | Radiator OEM Partners Across India",
     description:
-      "Transpares Limited supplies pressed steel transformer radiators to OEMs and utilities across India and export markets, with NTPC and PGCIL approvals including 765 kV.",
+      "Transpares Limited, Ahmedabad supplies pressed steel transformer radiators to OEMs and utilities across India and export markets — NTPC and PGCIL approved, including 765 kV.",
+    keywords: withCoreKeywords("transformer OEM radiator supplier India", "NTPC PGCIL radiator partner"),
+    path: "/clients",
+  },
+};
+
+export const productSeo: Record<string, SeoMeta> = {
+  "flange-type": {
+    title: "Flange Type Transformer Radiator Manufacturer in Ahmedabad, Gujarat | Transpares",
+    description:
+      "Flange type transformer radiators manufactured in Ahmedabad, Gujarat, India by Transpares Limited. Secure flange-mounted fittings, ISO 9001 quality, NTPC and PGCIL approved.",
+    keywords: withCoreKeywords(
+      "flange type radiator manufacturer Ahmedabad",
+      "flange type radiator manufacturer Gujarat",
+      "flange type radiator manufacturer India",
+    ),
+    path: "/products/flange-type",
+  },
+  "weldable-type": {
+    title: "Weldable Type Transformer Radiator Manufacturer in Ahmedabad, Gujarat | Transpares",
+    description:
+      "Weldable type transformer radiators from Transpares Limited, Ahmedabad, Gujarat, India — permanent welded mounting for high structural strength and long-term reliability.",
+    keywords: withCoreKeywords(
+      "weldable type radiator manufacturer Ahmedabad",
+      "weldable type radiator manufacturer Gujarat",
+      "weldable type radiator manufacturer India",
+    ),
+    path: "/products/weldable-type",
+  },
+  "hot-dip-galvanized": {
+    title: "Hot-Dip Galvanized Radiator Manufacturer in Ahmedabad, Gujarat | Transpares",
+    description:
+      "In-house hot-dip galvanized transformer radiators manufactured in Ahmedabad, Gujarat, India. Superior corrosion protection for coastal, offshore and industrial duty.",
+    keywords: withCoreKeywords(
+      "hot dip galvanized radiator manufacturer Ahmedabad",
+      "HDG radiator manufacturer Gujarat",
+      "galvanized transformer radiator India",
+    ),
+    path: "/products/hot-dip-galvanized",
+  },
+  "offset-type": {
+    title: "Offset Type Transformer Radiator Manufacturer in Ahmedabad, Gujarat | Transpares",
+    description:
+      "Offset type transformer radiators manufactured in Ahmedabad, Gujarat, India by Transpares Limited — flexible mounting where space or alignment is constrained.",
+    keywords: withCoreKeywords(
+      "offset type radiator manufacturer Ahmedabad",
+      "offset type radiator manufacturer Gujarat",
+      "offset type radiator manufacturer India",
+    ),
+    path: "/products/offset-type",
+  },
+  "goose-neck-type": {
+    title: "Goose Neck Transformer Radiator Manufacturer in Ahmedabad, Gujarat | Transpares",
+    description:
+      "Goose neck / swan neck / sky type transformer radiators from Transpares Limited in Ahmedabad, Gujarat, India. Offset elbowed headers for accessible tank connections.",
+    keywords: withCoreKeywords(
+      "goose neck radiator manufacturer Ahmedabad",
+      "swan neck radiator manufacturer Gujarat",
+      "sky type radiator manufacturer India",
+    ),
+    path: "/products/goose-neck-type",
   },
 };
 
@@ -202,35 +404,59 @@ export const seo: Record<
 export const home = {
   hero: {
     headline: "Precision-Engineered Transformer Radiators & Tanks. Delivered Worldwide.",
+    locationLine: "Manufactured in Ahmedabad, Gujarat, India · Since 1995",
     subheadline:
-      "For over 30 years, Transpares Limited has helped transformer manufacturers keep the world's power flowing — with radiators and tanks built for cooling performance, long service life, and dependable on-time delivery.",
+      "For over 30 years, Transpares Limited — a transformer radiator manufacturer in Changodar, Ahmedabad, Gujarat — has helped transformer manufacturers keep the world's power flowing, with radiators and tanks built for cooling performance, long service life, and dependable on-time delivery.",
     primaryCta: "Request a Quote",
     secondaryCta: "Explore Our Products",
   },
   welcome: {
     heading: "Keeping the World's Transformers Cool",
     paragraphs: [
-      "Transpaers India Pvt Ltd is a professional manufacturer of radiators and tanks for power and distribution transformers. From a modern, fully equipped production base, we combine internationally advanced manufacturing technology with a rigorous quality system to build products that perform reliably for decades — in national grids, power plants, industrial facilities, renewable energy projects, and some of the harshest operating environments on earth.",
-      "Every product we ship reflects one simple belief: a transformer is only as reliable as its cooling. That is why leading OEMs and utilities across 55+ countries trust Transpaers as their long-term manufacturing partner.",
+      "Transpares Limited is a professional manufacturer of transformer radiators and tanks based in Changodar, Ahmedabad, Gujarat, India. From a modern, fully equipped production base, we combine internationally advanced manufacturing technology with a rigorous quality system to build products that perform reliably for decades — in national grids, power plants, industrial facilities, renewable energy projects, and some of the harshest operating environments on earth.",
+      "Every product we ship reflects one simple belief: a transformer is only as reliable as its cooling. That is why leading OEMs and utilities across India and worldwide trust Transpares as their long-term manufacturing partner.",
     ],
     linkLabel: "More About Us",
   },
+  location: {
+    heading: "A Leading Transformer Radiator Manufacturer in Ahmedabad, Gujarat & India",
+    body: "Buyers searching for the best radiator manufacturers in Gujarat, Ahmedabad, or India find Transpares Limited at Changodar on the Sarkhej–Bavla Highway — an ISO-certified plant with in-house hot-dip galvanizing, 12,000 MT annual capacity, and NTPC and PGCIL 765 kV approvals. We supply pressed steel transformer radiators and corrugated tanks to OEMs and utilities across India and export markets.",
+  },
+  faqs: [
+    {
+      question: "Who are the best radiator manufacturers in Ahmedabad and Gujarat?",
+      answer:
+        "Transpares Limited is a leading transformer radiator manufacturer in Ahmedabad, Gujarat, with more than 30 years of production in Changodar. The plant is ISO 9001 certified, NTPC and PGCIL approved (including 765 kV), and manufactures flange, weldable, hot-dip galvanized, offset, and goose neck radiators.",
+    },
+    {
+      question: "Are there trusted transformer radiator manufacturers in India?",
+      answer:
+        "Yes. Transpares Limited manufactures pressed steel transformer radiators in India for power and distribution transformers, with 12,000 MT annual capacity, in-house HDG, 100% leak testing, and export packing from Gujarat via Kandla Port.",
+    },
+    {
+      question: "What types of transformer radiators are manufactured in Ahmedabad?",
+      answer:
+        "From Ahmedabad, Transpares manufactures flange type, weldable type, hot-dip galvanized, offset type, and goose neck (swan neck / sky type) transformer radiators, plus corrugated flat-wall tanks for distribution transformers.",
+    },
+    {
+      question: "Where is Transpares Limited located?",
+      answer:
+        "The registered office and manufacturing facility are at 14-15 Ashwamegh Industrial Estate, Sarkhej-Bavla Highway, Changodar, Ahmedabad, Gujarat 382213, India.",
+    },
+  ] as SeoFaq[],
   stats: [
     { value: "30+", label: "Years Since Inception" },
-    { value: "55+", label: "Countries We Export To" },
     { value: "400+", label: "Clients Served" },
     { value: "20,000 m²", label: "Production Area" },
   ] as Stat[],
   marqueeChips: [
     "30+ Years Since Inception",
-    "55+ Countries We Export To",
     "400+ Clients Served",
     "20,000 m² Production Area",
     "Fin widths: 300 / 380 / 520 mm",
     "Pitch sizes: 40 / 45 / 50 / 55 / 60 mm",
     "Centre lengths up to 4000 mm",
     "ISO 9001:2015 Certified",
-    "ISO 14001 Certified",
     "NTPC & PGCIL Approved",
     "PGCIL 765 kV",
     "Capacity: 12,000 MT / Year",
@@ -324,7 +550,7 @@ export const home = {
           "Manufactured with hot-dip galvanized components to provide superior corrosion resistance. This protective coating enhances durability, making it suitable for harsh outdoor and industrial environments.",
         path: "/products/hot-dip-galvanized",
         cta: "View Details",
-        image: "/hot-dip-galvanized-radiators.png",
+        image: "/Hot-dip-Galvanized-Radiator-2.jpg",
       },
       {
         icon: "GitCommitVertical",
@@ -342,7 +568,7 @@ export const home = {
           "Swan neck / goose neck / sky type radiators use offset, elbowed headers so tank connections stay accessible where a straight header cannot. The curved neck simplifies installation without compromising cooling performance.",
         path: "/products/goose-neck-type",
         cta: "View Details",
-        image: "/hot-dip-galvanized-radiators.png",
+        image: "/Hot-dip-Galvanized-Radiator-2.jpg",
       },
     ] as ProductPreviewCard[],
   },
@@ -384,7 +610,7 @@ export const about = {
   whoWeAre: {
     heading: "Who We Are",
     paragraphs: [
-      "Founded over 30 years ago, Transpares Limited has grown from a modest 1,800 m² workshop into one of the industry's most trusted manufacturers of transformer radiators and corrugated tanks — today operating 20,000 m² of state-of-the-art facilities.",
+      "Founded over 30 years ago in Ahmedabad, Gujarat, Transpares Limited has grown from a modest 1,800 m² workshop into one of India's most trusted manufacturers of transformer radiators and corrugated tanks — today operating 20,000 m² of state-of-the-art facilities at Changodar.",
       "That growth has been deliberate. Year after year, we have reinvested in advanced machinery, automation, and technology: a PLC-controlled internal cleaning and coating line that guarantees contamination-free internals, and an hot-dip galvanizing facility that gives us full command over corrosion protection and delivery schedules. The result for our customers is simple — shorter lead times, tighter quality control, and greater operational flexibility.",
     ],
   },
@@ -444,7 +670,7 @@ export const products = {
   overview: {
     heading: "Overview",
     paragraphs: [
-      "We professionally manufacture flange type, weldable type, hot-dip galvanized, offset type, and goose neck (swan neck / sky type) transformer radiators — engineered for secure installation, structural strength, corrosion resistance, and flexible mounting. Every product is built for maximum heat dissipation, long service life, and full compliance with international standards, and every product is backed by our quality guarantee.",
+      "We professionally manufacture flange type, weldable type, hot-dip galvanized, offset type, and goose neck (swan neck / sky type) transformer radiators in Ahmedabad, Gujarat, India — engineered for secure installation, structural strength, corrosion resistance, and flexible mounting. Every product is built for maximum heat dissipation, long service life, and full compliance with international standards, and every product is backed by our quality guarantee.",
     ],
   },
   configurations: {
@@ -472,7 +698,7 @@ export const products = {
         path: "/products/hot-dip-galvanized",
         description:
           "Manufactured with hot-dip galvanized components to provide superior corrosion resistance. This protective coating enhances durability, making it suitable for harsh outdoor and industrial environments.",
-        image: "/hot-dip-galvanized-radiators.png",
+        image: "/Hot-dip-Galvanized-Radiator-2.jpg",
       },
       {
         name: "Offset Type Transformer",
@@ -488,7 +714,7 @@ export const products = {
         path: "/products/goose-neck-type",
         description:
           "Swan neck / goose neck / sky type radiators use offset, elbowed headers so tank connections stay accessible where a straight header cannot. The curved neck simplifies installation without compromising cooling performance.",
-        image: "/hot-dip-galvanized-radiators.png",
+        image: "/Hot-dip-Galvanized-Radiator-2.jpg",
       },
     ] as RadiatorConfiguration[],
   },
@@ -611,7 +837,7 @@ export const applications = {
     ],
   },
   closing: {
-    body: "With independent export capability and a delivery track record spanning 55+ countries, Transpaers continuously supports customers in improving transformer energy efficiency and reliability. Our references reach major projects across most regions of the world — and our reputation travels with every shipment.",
+    body: "With independent export capability and a proven delivery track record, Transpaers continuously supports customers in improving transformer energy efficiency and reliability. Our references reach major projects across most regions of the world — and our reputation travels with every shipment.",
   },
   cta: {
     body: "Planning a project in a demanding environment?",
@@ -644,11 +870,8 @@ export const quality = {
     heading: "Certifications",
     items: [
       { name: "ISO 9001", description: "Quality Management System" },
-      { name: "ISO 14001", description: "Environmental Management System" },
       { name: "NTPC Approved", description: "Approved vendor for NTPC transformer radiator supply" },
       { name: "PGCIL Approved", description: "Approved for Power Grid Corporation of India Limited, including 765 kV class" },
-      { name: "ISO 45001", description: "Occupational Health & Safety Management" },
-      { name: "ISO 3834-2", description: "Comprehensive quality requirements for fusion welding" },
     ] as Certification[],
     boards: [
       {
@@ -705,7 +928,7 @@ export const quality = {
 export const manufacturing = {
   scale: {
     heading: "Built for Scale, Tuned for Speed",
-    body: "Transpares operates 20,000 m² of manufacturing area, engineered as one integrated flow — from sheet forming and fin welding to surface treatment, testing, and packing. Our operations and systems are optimized for one outcome: exceptional quality at minimal lead time, with the flexibility to absorb urgent customer requirements.",
+    body: "Transpares operates 20,000 m² of manufacturing area in Changodar, Ahmedabad, Gujarat — engineered as one integrated flow from sheet forming and fin welding to surface treatment, testing, and packing. Our operations and systems are optimized for one outcome: exceptional quality at minimal lead time, with the flexibility to absorb urgent customer requirements.",
     capability: "Annual operational capability: 12,000 MT of radiators",
   },
   hdg: {
@@ -726,8 +949,8 @@ export const manufacturing = {
   people: {
     heading: "Our People",
     items: [
-      "250+ professionals",
-      "1,200+ skilled workers on the shop floor",
+      "20+ professionals",
+      "200+ skilled workers",
       "A dedicated inspection team on every production line",
       "A young, dynamic team with international exposure and an engineering-first culture",
     ],
@@ -735,8 +958,9 @@ export const manufacturing = {
   logistics: {
     heading: "Logistics Advantage",
     items: [
+      "Plant: Changodar, Ahmedabad, Gujarat 382213",
       "Kandla Port — 250 km",
-      "Export-ready packing and documentation for 55+ destination countries",
+      "Export-ready packing and documentation for international shipments",
     ],
   },
 };
@@ -809,13 +1033,13 @@ export const sustainability = {
 
 export const contact = {
   intro: {
-    body: "Whether you need a budgetary offer, a detailed technical discussion, or an urgent delivery, our engineering-led team responds quickly and speaks your language — specifications, standards, and schedules.",
+    body: "Whether you need a budgetary offer, a detailed technical discussion, or an urgent delivery from our Ahmedabad, Gujarat plant, our engineering-led team responds quickly and speaks your language — specifications, standards, and schedules.",
   },
   details: {
     registeredOffice:
       "14-15 Ashwamegh Industrial Estate, Sarkhej-Bavla Hwy, Changodar, Ahmedabad, Gujarat 382213",
-    phones: ["(02717) 250633", "+91 96876 59985"],
-    phone: "+91 96876 59985",
+    phones: ["(02717) 250633", "+919687659985"],
+    phone: "+919687659985",
     email: "tpmarketing@transparesindia.com",
     emails: [
       { label: "Marketing", value: "tpmarketing@transparesindia.com" },
@@ -856,11 +1080,15 @@ export const contact = {
 export const clients = {
   heading: "Our Clients",
   intro:
-    "Transpares Limited supplies pressed steel transformer radiators to OEMs and utilities across India and export markets — backed by NTPC and PGCIL approvals, including 765 kV.",
+    "Transpares Limited supplies pressed steel transformer radiators to OEMs and utilities across India and export markets from our Ahmedabad, Gujarat plant — backed by NTPC and PGCIL approvals, including 765 kV.",
   items: [
     "Transformers & Rectifiers (India) Ltd",
     "NTPC",
     "PGCIL",
+    "Andrew Yule & Company Limited",
+    "Transformers and Electricals Kerala Limited",
+    "Atlanta Electricals Pvt. Ltd.",
+    "BHEL",
     "Power Utilities",
     "Transformer OEMs",
     "Export Partners",

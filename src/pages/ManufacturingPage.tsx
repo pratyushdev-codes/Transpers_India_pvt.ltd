@@ -5,7 +5,7 @@ import { manufacturing, seo } from '../data/content'
 export default function ManufacturingPage() {
   return (
     <>
-      <Seo title={seo.manufacturing.title} description={seo.manufacturing.description} />
+      <Seo {...seo.manufacturing} />
       <PageHero
         title="Manufacturing Facilities"
         description={manufacturing.scale.body}

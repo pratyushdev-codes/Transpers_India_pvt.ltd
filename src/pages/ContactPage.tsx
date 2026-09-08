@@ -6,7 +6,7 @@ import { contact, seo } from '../data/content'
 export default function ContactPage() {
   return (
     <>
-      <Seo title={seo.contact.title} description={seo.contact.description} />
+      <Seo {...seo.contact} />
       <PageHero
         title="Contact Us"
         description={contact.intro.body}

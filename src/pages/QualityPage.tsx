@@ -6,7 +6,7 @@ import { quality, seo } from '../data/content'
 export default function QualityPage() {
   return (
     <>
-      <Seo title={seo.quality.title} description={seo.quality.description} />
+      <Seo {...seo.quality} />
       <PageHero
         title="Quality & Certifications"
         description={quality.philosophy.paragraphs[0]}
