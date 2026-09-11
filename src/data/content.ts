@@ -297,7 +297,7 @@ export const seo: Record<
   quality: {
     title: "ISO 9001, NTPC & PGCIL Approved Radiator Manufacturer | Transpares Ahmedabad",
     description:
-      "Quality at Transpares Limited, Ahmedabad: ISO 9001, ISO 14001, NTPC and PGCIL approved — including PGCIL 765 kV — with stage-wise inspection on every transformer radiator.",
+      "Quality at Transpares Limited, Ahmedabad: ISO 9001, NTPC and PGCIL approved — including PGCIL 765 kV — with stage-wise inspection on every transformer radiator.",
     keywords: withCoreKeywords("ISO 9001 radiator manufacturer Ahmedabad", "PGCIL 765 kV radiator"),
     path: "/quality-certifications",
   },
@@ -315,8 +315,8 @@ export const seo: Record<
   sustainability: {
     title: "Sustainable Radiator Manufacturing in Gujarat, India | Transpares Limited",
     description:
-      "Transpares Limited's Ahmedabad plant runs ISO 14064-3 verified GHG accounting, energy-saving targets, circular economy practices, and ISO 14001 environmental management.",
-    keywords: withCoreKeywords("sustainable radiator manufacturing India", "ISO 14001 manufacturer Gujarat"),
+      "Transpares Limited's Ahmedabad plant runs ISO 14064-3 verified GHG accounting, energy-saving targets, and circular economy practices.",
+    keywords: withCoreKeywords("sustainable radiator manufacturing India", "GHG verified radiator manufacturer Gujarat"),
     path: "/sustainability",
   },
   contact: {
@@ -487,7 +487,7 @@ export const home = {
         icon: "ShieldCheck",
         title: "Assured Quality",
         description:
-          "A rigorous, end-to-end quality control system certified by multiple international bodies — ISO 9001, ISO 14001, ISO 45001, and ISO 3834-2 — supported by manual verification for absolute accuracy.",
+          "A rigorous, end-to-end quality control system certified by multiple international bodies — ISO 9001, ISO 45001, and ISO 3834-2 — supported by manual verification for absolute accuracy.",
       },
       {
         icon: "Layers",
@@ -568,7 +568,7 @@ export const home = {
           "Swan neck / goose neck / sky type radiators use offset, elbowed headers so tank connections stay accessible where a straight header cannot. The curved neck simplifies installation without compromising cooling performance.",
         path: "/products/goose-neck-type",
         cta: "View Details",
-        image: "/Hot-dip-Galvanized-Radiator-2.jpg",
+        image: "/New Goose Neck Transforme.jpg",
       },
     ] as ProductPreviewCard[],
   },
@@ -588,7 +588,7 @@ export const home = {
     cta: "See Application Cases",
   },
   certifications: {
-    strip: "ISO 9001 · ISO 14001 · NTPC Approved · PGCIL Approved · PGCIL 765 kV",
+    strip: "ISO 9001 · NTPC Approved · PGCIL Approved · PGCIL 765 kV",
   },
   sustainability: {
     heading: "Manufacturing Responsibly",
@@ -618,7 +618,7 @@ export const about = {
     heading: "Transpaers at a Glance",
     items: [
       { label: "Export Status", value: "Certified Three Star Export House" },
-      { label: "Certifications", value: "ISO 9001 · ISO 14001 · NTPC · PGCIL" },
+      { label: "Certifications", value: "ISO 9001 · NTPC · PGCIL" },
       { label: "Annual Operational Capability", value: "12,000 MT of radiators" },
       { label: "Manufacturing Area", value: "20,000 m²" },
       { label: "Design Capability", value: "Dedicated New Product Development (NPD) team" },
@@ -714,7 +714,7 @@ export const products = {
         path: "/products/goose-neck-type",
         description:
           "Swan neck / goose neck / sky type radiators use offset, elbowed headers so tank connections stay accessible where a straight header cannot. The curved neck simplifies installation without compromising cooling performance.",
-        image: "/Hot-dip-Galvanized-Radiator-2.jpg",
+        image: "/New Goose Neck Transforme.jpg",
       },
     ] as RadiatorConfiguration[],
   },
@@ -880,11 +880,6 @@ export const quality = {
         image: "",
       },
       {
-        name: "ISO 14001",
-        subtitle: "Environmental Management System",
-        image: "",
-      },
-      {
         name: "NTPC",
         subtitle: "Approved Board",
         image: "",
@@ -1023,7 +1018,7 @@ export const sustainability = {
   },
   certifications: {
     heading: "Environmental Certifications",
-    items: ["ISO 14001", "ISO 14064-3:2019"],
+    items: ["ISO 14064-3:2019"],
   },
 };
 

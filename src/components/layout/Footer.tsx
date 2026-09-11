@@ -138,7 +138,7 @@ export default function Footer() {
                   A group co. of Transformers and Rectifiers (India) Ltd
                 </p>
                 <p className="text-xs font-medium text-gray-400">
-                  ISO 9001 · ISO 14001 · NTPC · PGCIL
+                  ISO 9001 · NTPC · PGCIL
                 </p>
               </div>
             </div>

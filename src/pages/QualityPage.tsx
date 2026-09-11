@@ -70,10 +70,10 @@ export default function QualityPage() {
           <SectionHeading
             eyebrow="Credentials"
             title="Approved Boards"
-            subtitle="Images and certificates of our quality systems and utility approvals — ISO 9001, ISO 14001, NTPC, and PGCIL including 765 kV."
+            subtitle="Images and certificates of our quality systems and utility approvals — ISO 9001, NTPC, and PGCIL including 765 kV."
             gradient
           />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {quality.certifications.boards.map((board) => (
               <article
                 key={board.name}

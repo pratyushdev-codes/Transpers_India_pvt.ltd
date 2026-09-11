@@ -185,7 +185,6 @@ function organizationGraph() {
     ],
     award: [
       'ISO 9001:2015 Quality Management System',
-      'ISO 14001 Environmental Management System',
       'NTPC Approved Vendor',
       'PGCIL Approved including 765 kV',
       'Certified Three Star Export House',

@@ -21,7 +21,7 @@ const items = [
     icon: 'ShieldCheck',
     title: 'Assured Quality',
     description:
-      'A rigorous, end-to-end quality control system certified by multiple international bodies — ISO 9001, ISO 14001, ISO 45001, and ISO 3834-2 — supported by manual verification for absolute accuracy.',
+      'A rigorous, end-to-end quality control system certified by multiple international bodies — ISO 9001, ISO 45001, and ISO 3834-2 — supported by manual verification for absolute accuracy.',
   },
   {
     icon: 'Layers',
