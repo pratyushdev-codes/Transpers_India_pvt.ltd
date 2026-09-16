@@ -411,7 +411,7 @@ export const home = {
   welcome: {
     heading: "Keeping the World's Transformers Cool",
     paragraphs: [
-      "Transpares Limited is a professional manufacturer of transformer radiators and tanks based in Changodar, Ahmedabad, Gujarat, India. From a modern, fully equipped production base, we combine internationally advanced manufacturing technology with a rigorous quality system to build products that perform reliably for decades — in national grids, power plants, industrial facilities, renewable energy projects, and some of the harshest operating environments on earth.",
+      "Transpares Limited is a professional manufacturer of transformer radiators based in Changodar, Ahmedabad, Gujarat, India. From a modern, fully equipped production base, we combine internationally advanced manufacturing technology with a rigorous quality system to build products that perform reliably for decades — in national grids, power plants, industrial facilities, renewable energy projects, and some of the harshest operating environments on earth.",
       "Every product we ship reflects one simple belief: a transformer is only as reliable as its cooling. That is why leading OEMs and utilities across India and worldwide trust Transpares as their long-term manufacturing partner.",
     ],
     linkLabel: "More About Us",
