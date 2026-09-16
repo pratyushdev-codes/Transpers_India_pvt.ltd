@@ -1,4 +1,3 @@
-import { Download, ExternalLink } from 'lucide-react'
 import Seo from '../components/ui/Seo'
 import { SectionHeading, PageHero, CtaBand } from '../components/ui/Section'
 import { quality, seo } from '../data/content'
@@ -12,57 +11,6 @@ export default function QualityPage() {
         description={quality.philosophy.paragraphs[0]}
         breadcrumbs={[{ label: 'Home', path: '/' }, { label: 'Quality & Certifications' }]}
       />
-
-      {/* Credential PDFs */}
-      <section className="site-section bg-white">
-        <div className="container-site">
-          <SectionHeading
-            eyebrow="Documents"
-            title="Credentials"
-            subtitle="View and download our performance certificates and company credentials."
-            gradient
-          />
-          <div className="mt-10 grid gap-8 lg:grid-cols-2">
-            {quality.documents.map((doc) => {
-              const href = encodeURI(doc.file)
-              return (
-                <article
-                  key={doc.file}
-                  className="flex flex-col overflow-hidden rounded-2xl border border-[#d8eee3] bg-[#f7fcf9] shadow-sm"
-                >
-                  <div className="flex items-center justify-between gap-4 border-b border-[#d8eee3] bg-white px-5 py-4">
-                    <h3 className="text-base font-bold text-[#123028] md:text-lg">{doc.title}</h3>
-                    <div className="flex shrink-0 gap-2">
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full border border-[#0f7a4f] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[#0f7a4f] transition hover:bg-[#e8f6ef]"
-                      >
-                        <ExternalLink size={14} />
-                        View
-                      </a>
-                      <a
-                        href={href}
-                        download
-                        className="inline-flex items-center gap-1.5 rounded-full bg-[#0f7a4f] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-[#0a5c3b]"
-                      >
-                        <Download size={14} />
-                        Download
-                      </a>
-                    </div>
-                  </div>
-                  <iframe
-                    src={`${href}#toolbar=0`}
-                    title={doc.title}
-                    className="h-[70vh] w-full bg-white"
-                  />
-                </article>
-              )
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* Approved Boards */}
       <section className="site-section bg-white">
