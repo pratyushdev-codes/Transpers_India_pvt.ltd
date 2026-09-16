@@ -181,7 +181,6 @@ export const searchTags: SearchTag[] = [
   { label: "Hot-dip galvanized radiator", path: "/products/hot-dip-galvanized" },
   { label: "Offset type radiator", path: "/products/offset-type" },
   { label: "Goose neck radiator", path: "/products/goose-neck-type" },
-  { label: "Corrugated transformer tanks", path: "/products" },
   { label: "NTPC approved radiator manufacturer", path: "/quality-certifications" },
   { label: "PGCIL 765 kV approved", path: "/quality-certifications" },
   { label: "In-house HDG Ahmedabad", path: "/manufacturing" },
@@ -230,7 +229,6 @@ export const coreKeywords = [
   "weldable type transformer radiator manufacturer",
   "goose neck transformer radiator manufacturer",
   "offset type transformer radiator manufacturer",
-  "corrugated transformer tank manufacturer Ahmedabad",
   "NTPC approved radiator manufacturer",
   "PGCIL approved radiator manufacturer",
   "ISO 9001 radiator manufacturer India",
@@ -279,7 +277,7 @@ export const seo: Record<
   products: {
     title: "Transformer Radiators in Ahmedabad, Gujarat | Flange, Weldable, HDG | Transpares",
     description:
-      "Buy transformer radiators from a manufacturer in Ahmedabad, Gujarat, India: flange type, weldable, hot-dip galvanized, offset, and goose neck — plus corrugated tanks. Engineered for cooling performance and export.",
+      "Buy transformer radiators from a manufacturer in Ahmedabad, Gujarat, India: flange type, weldable, hot-dip galvanized, offset, and goose neck. Engineered for cooling performance and export.",
     keywords: withCoreKeywords(
       "transformer radiators Ahmedabad",
       "transformer radiators Gujarat",
@@ -403,7 +401,7 @@ export const productSeo: Record<string, SeoMeta> = {
 
 export const home = {
   hero: {
-    headline: "Precision-Engineered Transformer Radiators & Tanks. Delivered Worldwide.",
+    headline: "Precision-Engineered Transformer Radiators. Delivered Worldwide.",
     locationLine: "Manufactured in Ahmedabad, Gujarat, India · Since 1995",
     subheadline:
       "For over 30 years, Transpares Limited — a transformer radiator manufacturer in Changodar, Ahmedabad, Gujarat — has helped transformer manufacturers keep the world's power flowing, with radiators and tanks built for cooling performance, long service life, and dependable on-time delivery.",
@@ -420,7 +418,7 @@ export const home = {
   },
   location: {
     heading: "A Leading Transformer Radiator Manufacturer in Ahmedabad, Gujarat & India",
-    body: "Buyers searching for the best radiator manufacturers in Gujarat, Ahmedabad, or India find Transpares Limited at Changodar on the Sarkhej–Bavla Highway — an ISO-certified plant with in-house hot-dip galvanizing, 12,000 MT annual capacity, and NTPC and PGCIL 765 kV approvals. We supply pressed steel transformer radiators and corrugated tanks to OEMs and utilities across India and export markets.",
+    body: "Buyers searching for the best radiator manufacturers in Gujarat, Ahmedabad, or India find Transpares Limited at Changodar on the Sarkhej–Bavla Highway — an ISO-certified plant with 12,000 MT annual capacity, and NTPC and PGCIL 765 kV approvals. We supply pressed steel transformer radiators to OEMs and utilities across India and export markets.",
   },
   faqs: [
     {
@@ -436,7 +434,7 @@ export const home = {
     {
       question: "What types of transformer radiators are manufactured in Ahmedabad?",
       answer:
-        "From Ahmedabad, Transpares manufactures flange type, weldable type, hot-dip galvanized, offset type, and goose neck (swan neck / sky type) transformer radiators, plus corrugated flat-wall tanks for distribution transformers.",
+        "From Ahmedabad, Transpares manufactures flange type, weldable type, hot-dip galvanized, offset type, and goose neck (swan neck / sky type) transformer radiators.",
     },
     {
       question: "Where is Transpares Limited located?",
@@ -610,14 +608,14 @@ export const about = {
   whoWeAre: {
     heading: "Who We Are",
     paragraphs: [
-      "Founded over 30 years ago in Ahmedabad, Gujarat, Transpares Limited has grown from a modest 1,800 m² workshop into one of India's most trusted manufacturers of transformer radiators and corrugated tanks — today operating 20,000 m² of state-of-the-art facilities at Changodar.",
+      "Founded over 30 years ago in Ahmedabad, Gujarat, Transpares Limited has grown from a modest 1,800 m² workshop into one of India's most trusted manufacturers of transformer radiators — today operating 20,000 m² of state-of-the-art facilities at Changodar.",
       "That growth has been deliberate. Year after year, we have reinvested in advanced machinery, automation, and technology: a PLC-controlled internal cleaning and coating line that guarantees contamination-free internals, and an hot-dip galvanizing facility that gives us full command over corrosion protection and delivery schedules. The result for our customers is simple — shorter lead times, tighter quality control, and greater operational flexibility.",
     ],
   },
   glance: {
     heading: "Transpaers at a Glance",
     items: [
-      { label: "Export Status", value: "Certified Three Star Export House" },
+
       { label: "Certifications", value: "ISO 9001 · NTPC · PGCIL" },
       { label: "Annual Operational Capability", value: "12,000 MT of radiators" },
       { label: "Manufacturing Area", value: "20,000 m²" },
@@ -648,7 +646,7 @@ export const about = {
     founder: {
       title: "Managing Director",
       name: "Hitendra Doshi",
-      bio: "Transpares Limited is led by Hitendra Doshi, whose vision transformed a small fabrication unit into a globally recognized manufacturer of galvanized fin-type radiators and corrugated flat-wall tanks. With over three decades of industry experience, he brought the technical depth and long-term thinking that shaped the company from its earliest days. As Managing Director, Hitendra Doshi continues to oversee the company's strategic direction while championing the culture of innovation, quality, and customer commitment that defines Transpares to this day. Under this leadership, the company's story has become one of steady, values-driven growth — and of long-term trust earned from transformer manufacturers around the world.",
+      bio: "Transpares Limited is led by Hitendra Doshi, whose vision transformed a small fabrication unit into a globally recognized manufacturer of transformer radiators. With over three decades of industry experience, he brought the technical depth and long-term thinking that shaped the company from its earliest days. As Managing Director, Hitendra Doshi continues to oversee the company's strategic direction while championing the culture of innovation, quality, and customer commitment that defines Transpares to this day. Under this leadership, the company's story has become one of steady, values-driven growth — and of long-term trust earned from transformer manufacturers around the world.",
     },
   },
   milestones: [
@@ -775,7 +773,7 @@ export const products = {
   },
   tanks: {
     heading: "Transformer Tanks",
-    body: "Alongside radiators, Transpares manufactures corrugated flat-wall tanks for distribution transformers. Tanks are fabricated, leak-tested, and finished with the same surface treatment options as our radiators — giving transformer builders a matched, single-source cooling and enclosure package.",
+    body: "Alongside radiators, Transpares manufactures tanks for distribution transformers. Tanks are fabricated, leak-tested, and finished with the same surface treatment options as our radiators — giving transformer builders a matched, single-source cooling and enclosure package.",
     path: "/contact-us",
     cta: "Contact Us",
   },

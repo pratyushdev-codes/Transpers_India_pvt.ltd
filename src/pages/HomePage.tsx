@@ -6,7 +6,7 @@ import MottoBox from '../components/MottoBox'
 import PrecisionSection from '../components/PrecisionSection'
 import Seo from '../components/ui/Seo'
 import { SectionHeading, CtaBand } from '../components/ui/Section'
-import { home, seo, clients, searchTags } from '../data/content'
+import { home, seo, searchTags } from '../data/content'
 
 export default function HomePage() {
   return (
@@ -181,48 +181,6 @@ export default function HomePage() {
           <p className="text-center text-sm font-semibold tracking-wide text-[#0f7a4f] md:text-base">
             {home.certifications.strip}
           </p>
-        </div>
-      </section>
-
-      {/* Our Clients trail */}
-      <section className="site-section bg-white">
-        <div className="container-site">
-          <SectionHeading
-            eyebrow="Trusted By"
-            title="Our Clients"
-            subtitle="A growing trail of OEM and utility partnerships across India and export markets — NTPC and PGCIL approved, including 765 kV."
-            gradient
-          />
-          <div className="mt-10 overflow-hidden">
-            <div className="stats-marquee__track" role="list">
-              {[0, 1].map((copy) => (
-                <div
-                  key={copy}
-                  className="stats-marquee__group"
-                  aria-hidden={copy === 1 ? true : undefined}
-                >
-                  {clients.items.map(
-                    (name) => (
-                      <div
-                        key={`${copy}-${name}`}
-                        className="stats-marquee__chip"
-                        role="listitem"
-                      >
-                        {name}
-                      </div>
-                    ),
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          <Link
-            to="/clients"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#0f7a4f]"
-          >
-            View All Clients
-            <ArrowRight size={16} />
-          </Link>
         </div>
       </section>
 

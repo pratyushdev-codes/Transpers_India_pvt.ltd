@@ -115,7 +115,7 @@ function organizationGraph() {
     },
     image: absAsset(site.ogImage),
     description:
-      'Leading transformer radiator manufacturer in Ahmedabad, Gujarat, India. Pressed steel radiators and corrugated tanks for power and distribution transformers. ISO 9001, NTPC and PGCIL 765 kV approved.',
+      'Leading transformer radiator manufacturer in Ahmedabad, Gujarat, India. Pressed steel radiators for power and distribution transformers. ISO 9001, NTPC and PGCIL 765 kV approved.',
     slogan: brand.tagline,
     keywords:
       'best radiator manufacturers in Gujarat, best radiator manufacturers in Ahmedabad, best radiator manufacturers in India, transformer radiator manufacturer Ahmedabad, transformer radiator manufacturer Gujarat, transformer radiator manufacturer India',
@@ -157,7 +157,6 @@ function organizationGraph() {
       'Weldable type transformer radiators',
       'Offset type transformer radiators',
       'Goose neck transformer radiators',
-      'Corrugated transformer tanks',
       'Radiator manufacturing in Ahmedabad',
       'Radiator manufacturing in Gujarat',
       'Radiator manufacturing in India',
